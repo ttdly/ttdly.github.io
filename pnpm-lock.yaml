@@ -7,8 +7,6 @@ specifiers:
   '@unocss/preset-icons': ^0.50.4
   fs-extra: ^11.1.0
   gray-matter: ^4.0.3
-  mockjs: ^1.1.0
-  nprogress: ^0.2.0
   sass: ^1.59.2
   typescript: ^4.9.5
   unocss: ^0.50.4
@@ -26,8 +24,6 @@ devDependencies:
   '@unocss/preset-icons': 0.50.4
   fs-extra: 11.1.0
   gray-matter: 4.0.3
-  mockjs: 1.1.0
-  nprogress: 0.2.0
   sass: 1.59.2
   typescript: 4.9.5
   unocss: 0.50.4_vite@4.1.4
@@ -891,11 +887,6 @@ packages:
     resolution: {integrity: sha512-3tlv/dIP7FWvj3BsbHrGLJ6l/oKh1O3TcgBqMn+yyCagOxc23fyzDS6HypQbgxWbkpDnf52p1LuR4eWDQ/K9WQ==}
     dev: true
 
-  /commander/10.0.0:
-    resolution: {integrity: sha512-zS5PnTI22FIRM6ylNW8G4Ap0IEOyk62fhLSD0+uHRT9McRCLGpkVNvao4bjimpK/GShynyQkFFxHhwMcETmduA==}
-    engines: {node: '>=14'}
-    dev: true
-
   /consola/2.15.3:
     resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
@@ -1226,13 +1217,6 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /mockjs/1.1.0:
-    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
-    hasBin: true
-    dependencies:
-      commander: 10.0.0
-    dev: true
-
   /mrmime/1.0.1:
     resolution: {integrity: sha512-hzzEagAgDyoU1Q6yg5uI+AorQgdvMCur3FcKf7NhMKWsaYg+RnbTyHRa/9IlLF9rf455MOCtcqqrQQ83pPP7Uw==}
     engines: {node: '>=10'}
@@ -1260,10 +1244,6 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       path-key: 3.1.1
-    dev: true
-
-  /nprogress/0.2.0:
-    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
     dev: true
 
   /ofetch/1.0.1:
