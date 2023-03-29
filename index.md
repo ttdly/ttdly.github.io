@@ -1,7 +1,7 @@
 ---
 title: 结合GitHub Issues与VitePress写博客
-date: 2023-03-21T06:36:16Z
-tags: ["github"]
+create: 2023-03-21T06:36:16Z
+labels: ["github"]
 ---
 前一阵子一直在捣鼓VitePress，想着之前看到有人用Github Issues来做静态页面的评论系统，于是就去了解了一下，目前这类项目有[gitalk](https://github.com/gitalk/gitalk)、[gitment](https://github.com/imsun/gitment)以及[vssue](https://vssue.js.org/zh/)。在这个过程中发现很早之前就有人开始用Github Issues来写博客。本人比较懒，我想着能不能把它和VitePress结合起来再通过GitHub Pages实现嫖上加嫖，后经过搜索也确实有人这么干。
 

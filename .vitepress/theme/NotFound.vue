@@ -24,7 +24,7 @@ export default {
 }
 .not-found .describe{
   font-size: 2rem;
-  color: #005cfc;
+  color: var(--poke-c-primary);
   margin-top: 3rem;
 }
 .not-found .back{

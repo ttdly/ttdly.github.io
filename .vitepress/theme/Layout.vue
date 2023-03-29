@@ -1,17 +1,19 @@
 <script setup>
-import Blog from './components/Blog.vue';
-import NotFound from "./NotFound.vue";
 import { useData } from 'vitepress'
-import {onBeforeUpdate, onUpdated} from "vue";
+import Article from './components/Article.vue'
+import NotFound from "./NotFound.vue";
+import Menu from "./components/Menu.vue";
 
-const { page } = useData();
-
+// https://vitepress.dev/reference/runtime-api#usedata
+const { frontmatter, page } = useData()
 </script>
 
 <template>
+  <Menu/>
   <div v-if="page.isNotFound">
     <NotFound/>
   </div>
-
-  <Blog v-else />
+  <div v-else>
+    <Article/>
+  </div>
 </template>
