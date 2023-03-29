@@ -9,7 +9,7 @@ on:
 permissions: write-all
 
 jobs:
-  :
+  poke:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout md
