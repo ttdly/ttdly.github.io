@@ -1,0 +1,70 @@
+name: copyDiscussion
+
+on:
+  discussion:
+    types:
+      - "created"
+      - "edited"
+
+permissions: write-all
+
+jobs:
+  :
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout md
+        uses: actions/checkout@v3
+        with:
+          ref: md
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7.27.0
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run poke
+        uses: ttdly/poke@main
+
+      - name: Commit files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "auto copy"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with: 
+          branch: md
+          github_token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Build
+        run: pnpm run build
+  
+      - uses: actions/configure-pages@v2
+      - uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./.vitepress/dist
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v1
