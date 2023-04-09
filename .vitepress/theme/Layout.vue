@@ -1,19 +1,16 @@
 <script setup>
-import { useData } from 'vitepress'
-import Article from './components/Article.vue'
+import Post from "./components/Post.vue";
 import NotFound from "./NotFound.vue";
-import Menu from "./components/Menu.vue";
+import { useData } from 'vitepress'
 
-// https://vitepress.dev/reference/runtime-api#usedata
-const { frontmatter, page } = useData()
+const { page } = useData();
+
 </script>
 
 <template>
-  <Menu/>
   <div v-if="page.isNotFound">
     <NotFound/>
   </div>
-  <div v-else>
-    <Article/>
-  </div>
+
+  <Post v-else />
 </template>

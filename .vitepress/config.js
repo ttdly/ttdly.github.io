@@ -6,7 +6,7 @@ export default defineConfig({
   lang:'zh-CN',
   titleTemplate:false,
   markdown:{
-    theme: 'vitesse-dark'
+    theme: 'github-light'
   },
   themeConfig:{
     repoUrl: 'https://github.com/ttdly/ttdly.github.io/'
