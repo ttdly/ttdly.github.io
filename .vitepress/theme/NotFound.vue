@@ -16,7 +16,6 @@ export default {
 .not-found{
   height: 100vh;
   width: 100vw;
-  background-color: #fcfcfa;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +23,7 @@ export default {
 }
 .not-found .describe{
   font-size: 2rem;
-  color: var(--poke-c-primary);
+  color: #005cfc;
   margin-top: 3rem;
 }
 .not-found .back{
