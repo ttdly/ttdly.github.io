@@ -8,6 +8,7 @@ export default defineConfig({
   markdown:{
     theme: 'github-light'
   },
+  logo:'/logo.svg',
   themeConfig:{
     repoUrl: 'https://github.com/ttdly/ttdly.github.io/'
   }
