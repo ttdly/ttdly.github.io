@@ -15,15 +15,15 @@
   "author": "ttdlyu",
   "license": "ISC",
   "devDependencies": {
-    "@iconify-json/logos": "^1.1.23",
-    "@unocss/preset-icons": "^0.50.4",
+    "@iconify-json/logos": "^1.1.24",
+    "@unocss/preset-icons": "^0.50.8",
     "gray-matter": "^4.0.3",
-    "unocss": "^0.50.4",
-    "vitepress": "1.0.0-alpha.58",
-    "vue": "^3.2.47" ,
-    "pako": "^2.1.0"
+    "pako": "^2.1.0",
+    "unocss": "^0.50.8",
+    "vitepress": "1.0.0-alpha.65",
+    "vue": "^3.2.47"
   },
   "dependencies": {
-    "vite": "^4.1.4"
+    "vite": "^4.2.1"
   }
 }
