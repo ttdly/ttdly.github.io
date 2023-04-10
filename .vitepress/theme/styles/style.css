@@ -7,6 +7,7 @@ body,
 html {
   scrollbar-width: thin;
   height: 100vh;
+  background: #fff;
   color: #323232;
   font-family: -apple-system, "BlinkMacSystemFont", "Helvetica Neue",
     "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC",
