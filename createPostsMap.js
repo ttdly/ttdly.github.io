@@ -30,7 +30,7 @@ function dividePostsByTime(posts) {
   arr.sort((a, b) => b.data.create - a.data.create)
   for (const i of arr) {
     const date = new Date(i.data.create);
-    const dateStr = date.getFullYear() + '年' + date.getMonth().toString().padStart(2, '0') + '月' + date.getDate().toString().padStart(2, '0');
+    const dateStr = date.getFullYear() + '年' + (date.getMonth() + 1).toString().padStart(2, '0') + '月' + date.getDate().toString().padStart(2, '0') + '日 ';
     result += `${dateStr} [${i.data.title}](${i.url})   \n`;
   }
   fs.writeFileSync('pages/archive.md', result, { encoding: "utf-8" });
@@ -56,13 +56,13 @@ function dividePostsByTags(posts) {
     }
   });
   for (const k of key) {
-    console.log('生成：pages/'+k+'.md');
+    console.log('生成：pages/' + k + '.md');
     const arr = map.get(k);
     let result = '---\ntitle: "' + k + '"\n---\n';
     arr.sort((a, b) => b.data.create - a.data.create);
     for (const i of arr) {
       const date = new Date(i.data.create);
-      const dateStr = date.getFullYear() + '年' + date.getMonth().toString().padStart(2, '0') + '月' + date.getDate().toString().padStart(2, '0');
+      const dateStr = date.getFullYear() + '年' + (date.getMonth() + 1).toString().padStart(2, '0') + '月' + date.getDate().toString().padStart(2, '0') + '日 ';
       result += `${dateStr} [${i.data.title}](${i.url})   \n`;
     }
     fs.writeFileSync(`pages/${k}.md`, result, { encoding: "utf-8" });
