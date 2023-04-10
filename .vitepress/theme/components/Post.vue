@@ -29,7 +29,6 @@
             上传在：
             <template v-for="label in info.labels">
               <a :href="`/pages/${label}`">{{ label }}</a>
-              <a href="##">ss</a>
             </template>
              中
           </li>
