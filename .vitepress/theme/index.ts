@@ -1,12 +1,9 @@
-import Layout from "./Layout.vue";
-import "uno.css";
-import "./styles/style.css";
-import "./styles/github.markdown.light.css"
-
-export default {
-  Layout: Layout,
-  enhanceApp(ctx) {
-    // register your custom global components
-    // ctx.app.component('PageList', PageList)
-  },
+// https://vitepress.dev/guide/custom-theme
+import Layout from './Layout.vue';
+import { type Theme } from 'vitepress';
+const theme: Theme = {
+  Layout
 };
+export * from './util/date.js';
+export * from './util/icon.js';
+export default theme;

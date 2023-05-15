@@ -4,26 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ./createPostsMap.js && vitepress dev",
-    "build": "node ./createPostsMap.js && vitepress build",
+    "dev": "vitepress dev",
+    "build": "vitepress build",
     "preview": "vitepress preview"
   },
   "keywords": [
     "vitepress",
-    "blog"
+    "blog",
+    "github disscussion"
   ],
   "author": "ttdlyu",
   "license": "ISC",
   "devDependencies": {
-    "@iconify-json/logos": "^1.1.24",
-    "@unocss/preset-icons": "^0.50.8",
-    "gray-matter": "^4.0.3",
-    "pako": "^2.1.0",
-    "unocss": "^0.50.8",
-    "vitepress": "1.0.0-alpha.65",
-    "vue": "^3.2.47"
+    "vitepress": "^1.0.0-alpha.75",
+    "vue": "^3.3.2"
   },
   "dependencies": {
-    "vite": "^4.2.1"
+    "vite": "^4.3.5"
   }
 }

@@ -1,0 +1,169 @@
+body {
+  font-size: 15px;
+  color: var(--c-text-content);
+  font-family: Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei',
+    'WenQuanYi Micro Hei', 'tohoma', sans-serif;
+  margin: 0;
+}
+
+body::selection {
+  background: var(--c-text-link);
+  color: #ffffff;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+a,
+a:link,
+a:visited,
+a:focus,
+a:hover {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+li,
+p {
+  overflow-wrap: break-word;
+}
+
+img {
+  display: block;
+}
+
+dl,
+ol,
+ul {
+  margin-top: 12px;
+  margin-bottom: 20px;
+  padding-left: 5%;
+  line-height: 1.8;
+}
+
+p {
+  margin: 0 0 20px;
+  padding: 0;
+  line-height: 1.8;
+}
+
+blockquote {
+  font-size: 1em;
+  font-style: normal;
+  padding: 14px 8px;
+  margin: 15px 0;
+  position: relative;
+  line-height: 1.8;
+  text-indent: 0;
+  border: none;
+  color: var(--c-text-blockqoute);
+  background: var(--c-bg-blockqoute);
+  border-left: 6px solid var(--c-border-blockqoute);
+}
+
+blockquote p {
+  margin: 0;
+}
+
+strong,
+dfn {
+  font-weight: 700;
+}
+
+em,
+dfn {
+  font-style: italic;
+  font-weight: 400;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+pre {
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-all;
+  word-wrap: break-word;
+  border-radius: 4px;
+  white-space: pre-wrap;
+  display: block;
+  background: var(--c-bg-code);
+  padding: 10px 20px;
+  border: none;
+  margin: 0 0 25px;
+  color: #fff;
+  font-family: Courier, sans-serif;
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+figcaption {
+  font-size: 0.75em;
+  padding: 0.5em 2em;
+  margin-bottom: 2em;
+}
+
+figure img {
+  margin-bottom: 0;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+ol p,
+ul p {
+  margin-bottom: 0;
+}
+
+li {
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+  list-style: none;
+}
+
+.content {
+  max-width: 800px;
+  margin: 2rem auto 0;
+}
+
+.shadow-box {
+  background: #fff;
+  box-sizing: border-box;
+  padding: var(--px-post-pd-column) var(--px-post-pd-row);
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .shadow-box {
+    box-shadow: 0 10px 20px 0 #ccc;
+    margin-top: 60px !important;
+  }
+}
