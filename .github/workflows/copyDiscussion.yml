@@ -38,6 +38,8 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+      - name: Update lock file
+        run: pnpm install --lockfile-only
 
       - name: Install dependencies
         run: pnpm install
@@ -65,6 +67,7 @@ jobs:
       - uses: actions/upload-pages-artifact@v1
         with:
           path: ./.vitepress/dist
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
