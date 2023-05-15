@@ -1,5 +1,8 @@
 ---
-title: "github"
+page: "label"
+label: github
+item:
+  - time: 2023-03-21T06:36:16Z
+    title: 用JavaScript创建GitHub Action
+    url: /posts/2.html
 ---
-2023年02月31 [用JavaScript创建GitHub Action](/posts/2.html)   
-2023年02月21 [结合GitHub Issues与VitePress写博客](/posts/1.html)   

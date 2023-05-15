@@ -1,0 +1,43 @@
+:root {
+  --c-text-title: #1f2937;
+  --c-text-content: #4b5563;
+  --c-text-low-level: #9ca3af;
+  --c-text-blockqoute: #9ca3af;
+  --c-text-link: #005aff;
+  --c-text-link-dark: #00266b;
+  --c-text-code-group-active: #98c379;
+  --c-bg-code: #272822;
+  --c-bg-code-inline: #ebebeb;
+  --c-bg-blockqoute: #f9fafb4a;
+  --c-code-border: #484848;
+  --c-code-highlight: #666957;
+  --c-code-highlight-error: #dc262640;
+  --c-code-highlight-warning: #d9770640;
+  --c-code-diff-add: #0478574a;
+  --c-code-diff-add-symbol: #047857;
+  --c-code-diff-remove: #b91c1c4a;
+  --c-code-diff-remove-symbol: #b91c1c;
+  --c-custom-block-info-light: #d1d5db;
+  --c-custom-block-info: #6b7280;
+  --c-custom-block-info-dark: #374151;
+  --c-custom-block-tip-light: #6ee7b7;
+  --c-custom-block-tip: #10b981;
+  --c-custom-block-tip-dark: #047857;
+  --c-custom-block-danger-light: #fca5a5;
+  --c-custom-block-danger: #ef4444;
+  --c-custom-block-danger-dark: #b91c1c;
+  --c-custom-block-warning-light: #fcd34d;
+  --c-custom-block-warning: #f59e0b;
+  --c-custom-block-warning-dark: #b45309;
+  --c-border-blockqoute: #d1d5db;
+}
+:root {
+  --px-code-cpoy: 28px;
+  --px-custom-block-font: 14px;
+  --px-post-pd-row: 2.4rem;
+  --px-post-pd-column: 1rem;
+}
+:root {
+  --code-copy: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cg fill="none" stroke="%239ca3af" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"%3E%3Cpath d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h3m9-9V7a2 2 0 0 0-2-2h-2m-2 12v-1a1 1 0 0 1 1-1h1m3 0h1a1 1 0 0 1 1 1v1m0 3v1a1 1 0 0 1-1 1h-1m-3 0h-1a1 1 0 0 1-1-1v-1"%2F%3E%3Cpath d="M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+  --code-copied: url('data:image/svg+xml,%3Csvg xmlns="http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%239ca3af" d="M9.55 17.575q-.2 0-.375-.063T8.85 17.3L4.55 13q-.275-.275-.263-.713t.288-.712q.275-.275.7-.275t.7.275L9.55 15.15l8.475-8.475q.275-.275.713-.275t.712.275q.275.275.275.713t-.275.712l-9.2 9.2q-.15.15-.325.213t-.375.062Z"%2F%3E%3C%2Fsvg%3E');
+}

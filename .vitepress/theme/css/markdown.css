@@ -1,0 +1,388 @@
+.markdown li {
+  list-style: inherit;
+}
+
+/**
+----------------------------------------link-----------------------------------------------
+**/
+.markdown a {
+  color: var(--c-text-link);
+  text-decoration: none;
+  position: relative;
+}
+
+.markdown a:focus {
+  outline-offset: -2px;
+}
+
+.markdown a::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+  left: 0;
+  background: var(--c-text-link);
+  transition: all 0.3s ease-in-out;
+  transform: scale3d(0, 1, 1);
+  transform-origin: 50% 0;
+}
+
+.markdown a:hover::after {
+  transform: scale3d(1, 1, 1);
+}
+
+/**
+----------------------------------------title-----------------------------------------------
+**/
+
+.markdown h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  line-height: 1.1;
+  padding-top: 16px;
+  margin-bottom: 4px;
+  color: var(--c-text-title);
+}
+
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  line-height: 1.5em;
+  margin-top: 2.2em;
+  margin-bottom: 4px;
+  color: var(--c-text-title);
+}
+
+.markdown h2 {
+  font-size: 1.4em;
+  margin: 20px 0 10px;
+  padding: 20px 0;
+  border-top: solid 1px var(--c-bg-code-inline);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.markdown h3 {
+  font-weight: 700;
+  font-size: 1.2em;
+  line-height: 1.4;
+  margin: 10px 0 5px;
+  padding-top: 10px;
+}
+
+.markdown h4 {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  line-height: 1.4;
+  margin: 10px 0 5px;
+  padding-top: 10px;
+}
+
+.markdown h5,
+.markdown h6 {
+  font-size: 0.9em;
+}
+
+.markdown h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.markdown h6 {
+  font-weight: normal;
+  color: #aaa;
+}
+
+.markdown img {
+  height: auto;
+  text-align: center;
+  max-width: 100%;
+  max-height: 500px;
+  display: block;
+  margin: 20px auto;
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+/**
+----------------------------------------code-----------------------------------------------
+**/
+code {
+  border-radius: 4px;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.markdown :not(pre) > code {
+  color: var(--c-text-content);
+  background-color: var(--c-bg-code-inline);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-size: 90%;
+}
+
+.markdown div[class*='language-'] {
+  position: relative;
+}
+
+/*语言标签以及复制按钮*/
+.markdown div[class*='language-'] > button.copy {
+  direction: ltr;
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  height: var(--px-code-cpoy);
+  width: var(--px-code-cpoy);
+  cursor: pointer;
+  border: solid 1px var(--c-code-border);
+  border-radius: 4px;
+  background-color: var(--c-bg-code);
+  background-image: var(--code-copy);
+  background-position: 50%;
+  background-size: 20px;
+  opacity: 0;
+  background-repeat: no-repeat;
+  z-index: 1;
+  transition: opacity 0.25s;
+}
+
+.markdown div[class*='language-'] > button.copied {
+  direction: ltr;
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  height: var(--px-code-cpoy);
+  width: var(--px-code-cpoy);
+  cursor: pointer;
+  border: solid 1px var(--c-code-border);
+  border-radius: 4px;
+  background-image: var(--code-copied);
+  background-position: 50%;
+  background-size: 20px;
+  background-repeat: no-repeat;
+}
+
+.markdown div[class*='language-'] > button.copied::after {
+  content: '已复制';
+  display: block;
+  width: 3em;
+  line-height: var(--px-code-cpoy);
+  position: absolute;
+  top: 0;
+  left: -3.5em;
+  color: var(--c-text-low-level);
+}
+
+.markdown div[class*='language-'] > span.lang {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--c-text-low-level);
+  transition: opacity 0.25s;
+}
+
+.markdown div[class*='language-']:hover > span.lang {
+  opacity: 0;
+}
+
+.markdown div[class*='language-']:hover > button.copy {
+  opacity: 1;
+}
+
+.markdown div[class*='language-'] > button.copy:active {
+  transform: scale(90%, 90%);
+}
+
+/*一些聚焦、高亮、diff行样式*/
+.markdown [class*='language-'] code .highlighted,
+.markdown [class*='language-'] code .diff {
+  background-color: var(--c-code-highlight);
+  transition: background-color 0.5s;
+  margin: 0 -24px;
+  padding: 0 24px;
+  width: calc(100% + 2 * 24px);
+  display: inline-block;
+}
+
+.markdown [class*='language-'] code .highlighted.error {
+  background-color: var(--c-code-highlight-error);
+}
+
+.markdown [class*='language-'] code .highlighted.warning {
+  background-color: var(--c-code-highlight-warning);
+}
+
+.markdown [class*='language-'] code .diff::before {
+  position: absolute;
+  left: 10px;
+}
+
+.markdown [class*='language-'] code .diff.remove {
+  background-color: var(--c-code-diff-remove);
+}
+
+.markdown [class*='language-'] code .diff.remove::before {
+  content: '-';
+  color: var(--c-code-diff-remove-symbol);
+}
+
+.markdown [class*='language-'] code .diff.add {
+  background-color: var(--c-code-diff-add);
+}
+
+.markdown [class*='language-'] code .diff.add::before {
+  content: '+';
+  color: var(--c-code-diff-add-symbol);
+}
+
+.markdown [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+  filter: blur(0.095rem);
+  opacity: 0.4;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.markdown [class*='language-'] .has-focused-lines .line:not(.has-focus) {
+  opacity: 0.7;
+  transition: filter 0.35s, opacity 0.35s;
+}
+
+.markdown [class*='language-']:hover .has-focused-lines .line:not(.has-focus) {
+  filter: blur(0);
+  opacity: 1;
+}
+
+.markdown div[class*='language-'].line-numbers-mode {
+  padding-left: 32px;
+  background-color: var(--c-bg-code);
+  border-radius: 4px;
+}
+
+.markdown .line-numbers-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  border-right: 1px solid var(--c-code-border);
+  padding-top: 10px;
+  width: 32px;
+  text-align: center;
+  font-family: var(--vp-font-family-mono);
+  line-height: 1.6;
+  font-size: 14px;
+  color: var(--c-text-low-level);
+  transition: border-color 0.5s, color 0.5s;
+}
+
+/**
+-------------------------------------custom-block-------------------------------------------
+**/
+.markdown .custom-block {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 16px 16px 8px;
+  margin: 16px 0;
+  line-height: 24px;
+  font-size: var(--px-custom-block-font);
+  color: var(--c-text-content);
+}
+
+.markdown .custom-block.info {
+  border-color: var(--px-custom-block-font);
+  color: var(--c-custom-block-info-dark);
+  background-color: var(--c-custom-block-info-light);
+}
+
+.markdown .custom-block.custom-block th,
+.markdown .custom-block.custom-block blockquote > p {
+  font-size: var(--px-custom-block-font);
+  color: inherit;
+}
+
+.markdown .custom-block.info code {
+  background-color: var(--c-custom-block-info);
+}
+
+.markdown .custom-block.tip {
+  border-color: var(--c-custom-block-tip-dark);
+  color: var(--c-custom-block-tip-dark);
+  background-color: var(--c-custom-block-tip-light);
+}
+
+.markdown .custom-block.tip code {
+  background-color: var(--c-custom-block-tip);
+}
+
+.markdown .custom-block.danger {
+  border-color: var(--c-custom-block-danger-dark);
+  color: var(--c-custom-block-danger-dark);
+  background-color: var(--c-custom-block-danger-light);
+}
+
+.markdown .custom-block.danger code {
+  background-color: var(--c-custom-block-danger);
+}
+
+.markdown .custom-block.warning {
+  border-color: var(--c-custom-block-warning-dark);
+  color: var(--c-custom-block-warning-dark);
+  background-color: var(--c-custom-block-warning-light);
+}
+
+.markdown .custom-block.warning code {
+  background-color: var(--c-custom-block-warning);
+}
+
+.markdown .custom-block.details {
+  border-color: var(--c-custom-block-info-dark);
+  color: var(--c-custom-block-info-dark);
+  background-color: var(--c-custom-block-info-light);
+}
+
+.markdown .custom-block.details code {
+  background-color: var(--c-custom-block-info);
+}
+
+.markdown .custom-block-title {
+  font-weight: 600;
+}
+
+.markdown .custom-block p + p {
+  margin: 8px 0;
+}
+
+.markdown .custom-block.details summary {
+  margin: 0 0 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.markdown .custom-block.details summary + p {
+  margin: 8px 0;
+}
+
+.markdown .custom-block a {
+  color: inherit;
+  font-weight: 600;
+}
+
+.markdown .custom-block a:hover {
+  text-decoration: underline;
+}
+
+.markdown .custom-block code {
+  font-size: 13px;
+}
+
+.markdown .icon {
+  vertical-align: bottom;
+}

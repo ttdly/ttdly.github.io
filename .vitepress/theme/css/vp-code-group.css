@@ -1,0 +1,82 @@
+.vp-code-group {
+  margin-top: 16px;
+}
+
+.vp-code-group .tabs {
+  position: relative;
+  display: flex;
+  padding: 0 12px;
+  background-color: var(--c-bg-code);
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: 4px 4px 0 0;
+}
+
+.vp-code-group .tabs::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--c-code-border);
+  content: '';
+}
+
+.vp-code-group .tabs input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.vp-code-group .tabs label {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  padding: 0 12px;
+  line-height: 48px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--c-text-content);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.25s;
+}
+
+.vp-code-group .tabs label::after {
+  position: absolute;
+  right: 8px;
+  bottom: -1px;
+  left: 8px;
+  z-index: 10;
+  height: 1px;
+  content: '';
+  background-color: transparent;
+  transition: background-color 0.25s;
+}
+
+.vp-code-group label:hover {
+  color: var(--c-text-code-group-active);
+}
+
+.vp-code-group input:checked + label {
+  color: var(--c-text-code-group-active);
+}
+
+.vp-code-group input:checked + label::after {
+  background-color: var(--c-text-code-group-active);
+}
+
+.vp-code-group div[class*='language-'] {
+  display: none;
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.vp-code-group div[class*='language-'].active {
+  display: block;
+}
+
+.markdown .active pre {
+  border-radius: 0 0 4px 4px;
+}
