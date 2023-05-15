@@ -72,14 +72,14 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 
 <style scoped>
 .blog-update {
-  background: var(--c-code-highlight-warning);
+  border: 1px dashed var(--c-code-diff-remove-symbol);
   padding: 3%;
   color: var(--c-code-diff-remove-symbol);
   font-size: 0.9em;
 }
 
 .blog-head {
-  height: 20rem;
+  height: 15rem;
   background-color: #4f46e5;
   color: #ffffff;
   display: flex;
@@ -97,6 +97,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   padding: 0;
   color: #ffffff;
   font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .label-link {
@@ -119,5 +120,14 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 
 .icon {
   vertical-align: sub;
+}
+
+@media (min-width: 640px) {
+  body .blog-head{
+    height: 20rem;
+  }
+  body .blog-head h1{
+    font-weight: 600;
+  }
 }
 </style>

@@ -130,6 +130,37 @@ code {
 
 .markdown div[class*='language-'] {
   position: relative;
+  background: var(--c-bg-code);
+  overflow-x: auto;
+  border-radius: 4px;
+  margin: 16px 0;
+  padding: 1em 0;
+}
+
+.markdown div[class*='language-'] pre,.markdown div[class*='language-'] code{
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none
+}
+
+.markdown div[class*='language-'] code{
+  display: block;
+  padding: 0 24px;
+  width: fit-content;
+  line-height: 1.6;
+  font-size: 14px;
+  color: #fff;
+  transition: color .5s
 }
 
 /*语言标签以及复制按钮*/

@@ -40,10 +40,16 @@ li {
   margin-top: 2rem;
 }
 
+@media (min-width: 640px) {
+  body li a {
+    font-weight: 600;
+  }
+}
+
 li a {
   color: var(--c-text-title);
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 400;
   transition: color 0.5s;
 }
 
