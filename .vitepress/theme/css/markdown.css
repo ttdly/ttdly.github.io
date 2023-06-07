@@ -171,7 +171,7 @@ code {
   right: 6px;
   height: var(--px-code-cpoy);
   width: var(--px-code-cpoy);
-  cursor: pointer;
+  cursor: none;
   border: solid 1px var(--c-code-border);
   border-radius: 4px;
   background-color: var(--c-bg-code);
@@ -191,7 +191,7 @@ code {
   right: 6px;
   height: var(--px-code-cpoy);
   width: var(--px-code-cpoy);
-  cursor: pointer;
+  cursor: none;
   border: solid 1px var(--c-code-border);
   border-radius: 4px;
   background-image: var(--code-copied);
@@ -394,7 +394,7 @@ code {
 .markdown .custom-block.details summary {
   margin: 0 0 8px;
   font-weight: 700;
-  cursor: pointer;
+  cursor: none;
 }
 
 .markdown .custom-block.details summary + p {

@@ -11,11 +11,13 @@ import BlogList from './components/BlogList.vue';
 import NotFound from './NotFound.vue';
 import LabelList from './components/LabelList.vue';
 import LabelBlog from './components/LabelBlog.vue';
+import Cursor from "./components/Cursor.vue";
 
 const { frontmatter } = useData();
 </script>
 
 <template>
+  <Cursor/>
   <Blog v-if="frontmatter.title" />
   <BlogList
     v-else-if="frontmatter.page === 'list'"
