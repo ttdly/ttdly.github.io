@@ -1,6 +1,10 @@
 ---
 page: list
 list:
+  - time: 2023-08-14T02:17:09Z
+    title: Python 基础学习
+    url: /posts/6.html
+    number: 6
   - time: 2023-05-19T07:13:00.000Z
     title: Echarts - 提示框组件
     url: /posts/5.html
