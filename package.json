@@ -16,10 +16,11 @@
   "author": "ttdlyu",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.75",
-    "vue": "^3.3.2"
+    "vitepress": "1.0.0-rc.10",
+    "vue": "^3.3.4"
   },
+  "type": "module",
   "dependencies": {
-    "vite": "^4.3.5"
+    "vite": "4.3.9"
   }
 }
