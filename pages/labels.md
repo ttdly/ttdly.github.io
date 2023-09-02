@@ -4,4 +4,5 @@ labels:
   - github
   - echarts
   - Python
+  - python
 ---
