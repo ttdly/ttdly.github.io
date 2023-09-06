@@ -1,6 +1,10 @@
 ---
 page: list
 list:
+  - time: 2023-09-05T14:56:21Z
+    title: NS-3 环境搭建
+    url: /posts/7.html
+    number: 7
   - time: 2023-08-14T02:17:09.000Z
     title: Python 基础学习
     url: /posts/6.html
