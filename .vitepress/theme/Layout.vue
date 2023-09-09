@@ -12,13 +12,15 @@ import NotFound from './NotFound.vue';
 import LabelList from './components/LabelList.vue';
 import LabelBlog from './components/LabelBlog.vue';
 import Cursor from "./components/Cursor.vue";
+import HomePage from "./components/HomePage.vue";
 
 const { frontmatter } = useData();
 </script>
 
 <template>
-  <Cursor/>
+<!--  <Cursor/>-->
   <Blog v-if="frontmatter.title" />
+  <HomePage v-else-if="frontmatter.page === 'home'"/>
   <BlogList
     v-else-if="frontmatter.page === 'list'"
     class="content shadow-box slide-enter-content"
@@ -32,7 +34,7 @@ const { frontmatter } = useData();
     class="content shadow-box slide-enter-content"
   />
   <NotFound v-else />
-  <Footer />
+  <Footer v-if="frontmatter.page !== 'home'"/>
 </template>
 
 <style scoped></style>

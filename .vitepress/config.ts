@@ -9,6 +9,9 @@ export default defineConfigWithTheme<PokeTheme.Config>({
   markdown: {
     theme: 'one-dark-pro'
   },
+  sitemap:{
+    hostname:"https://blog.152527.xyz"
+  },
   themeConfig: {
     nav: [
       {text: "首页", link: '/'},
