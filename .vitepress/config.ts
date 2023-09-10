@@ -4,7 +4,7 @@ import {PokeTheme} from "./theme";
 export default defineConfigWithTheme<PokeTheme.Config>({
   ignoreDeadLinks: true,
   lang: 'zh-CN',
-  title: '秃头灯笼鱼',
+  title: 'tTdlyu',
   titleTemplate: false,
   markdown: {
     theme: 'one-dark-pro'

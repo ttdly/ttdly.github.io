@@ -2,6 +2,12 @@
 import { useData } from 'vitepress';
 import Location from "./icons/Location.vue";
 const { frontmatter } = useData();
+
+
+const { site } = useData();
+const title = site.value.themeConfig.name
+  ? site.value.themeConfig.name
+  : site.value.title;
 const links = frontmatter.value.links
 console.log(frontmatter.value.links)
 </script>
@@ -11,7 +17,7 @@ console.log(frontmatter.value.links)
     <div class="avatar">
       <img src="logo.svg" alt="avatar">
     </div>
-    <div class="name">tTdlyu</div>
+    <div class="name">{{title}}</div>
     <div class="location"><Location/><span>China</span></div>
     <div class="links">
       <ul>
@@ -80,5 +86,8 @@ console.log(frontmatter.value.links)
 a{
   text-decoration: underline;
   color: var(--c-text-title);
+}
+a:hover{
+  cursor: pointer
 }
 </style>

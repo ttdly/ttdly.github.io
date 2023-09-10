@@ -25,7 +25,10 @@ onMounted(() => {
   });
 });
 
-const { frontmatter } = useData();
+const { frontmatter, site } = useData();
+const title = site.value.themeConfig.name
+  ? site.value.themeConfig.name
+  : site.value.title;
 const postInfo: ComputedRef<PageData> = computed(() => {
   const result: PageData = {
     create: false,
@@ -42,7 +45,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 </script>
 
 <template>
-  <div class="posts content shadow-box">
+  <div class="posts content">
     <div class="blog-head">
       <div></div>
       <div class="blog-info">
@@ -62,50 +65,46 @@ const postInfo: ComputedRef<PageData> = computed(() => {
     </div>
     <Content class="markdown slide-enter-content" />
     <p v-if="postInfo.update" class="blog-update">
-      本文最后更新于
-      {{
-        handelRawDate(postInfo.update, DateFormatType.Characters)
-      }}，请注意时效性。
+      本文最后更新于 {{handelRawDate(postInfo.update, DateFormatType.Ago)}}
+    </p>
+    <p class="copyright">
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA</a>
+      <span>© {{handelRawDate(postInfo.create, DateFormatType.Dot).split(".")[0]}} {{title}}</span>
     </p>
   </div>
 </template>
 
 <style scoped>
+.posts{
+  padding: 0 10px;
+}
+
 .blog-update {
-  border: 1px dashed var(--c-code-diff-remove-symbol);
-  padding: 3%;
-  color: var(--c-code-diff-remove-symbol);
   font-size: 0.9em;
+  text-align: end;
+  color: var(--c-text-low-level);
 }
 
 .blog-head {
   height: 15rem;
-  background-color: #4f46e5;
-  color: #ffffff;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 1rem 2rem;
   animation: shadow-enter 1s both 1;
-  margin: calc(0rem - var(--px-post-pd-column))
-    calc(0rem - var(--px-post-pd-row)) 2rem;
 }
 
 .blog-head h1 {
   margin-top: 0.6rem;
   margin-bottom: 1rem;
   padding: 0;
-  color: #ffffff;
   font-size: 1.6rem;
   font-weight: 400;
+  color: var(--c-text-title);
 }
 
 .label-link {
-  background: #ffffff;
   display: inline-block;
   font-size: 0.8rem;
-  padding: 4px 12px;
-  border-radius: 4px;
   color: var(--c-text-title);
   cursor: pointer;
   margin-right: 0.4rem;
@@ -113,7 +112,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 }
 
 .blog-statistic span {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
   display: inline-block;
   margin-right: 2rem;
 }
@@ -122,12 +121,22 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   vertical-align: sub;
 }
 
+.copyright a{
+  margin-right: 1ch;
+  text-decoration: underline;
+  padding-bottom: 2ch;
+}
+
 @media (min-width: 640px) {
   body .blog-head{
-    height: 20rem;
+    height: 12rem;
   }
   body .blog-head h1{
     font-weight: 600;
+  }
+
+  .posts{
+    padding: 0;
   }
 }
 </style>

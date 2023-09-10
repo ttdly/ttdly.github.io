@@ -12,19 +12,17 @@ const socialLink = site.value.themeConfig.socialLink;
 
 <template>
   <div class="page-head">
-    <span v-if="title" class="title"
-      ><a href="/">{{ title }}</a></span
-    >
-    <ul class="links">
-      <li v-for="item in socialLink">
-        <SocialLink :icon="item.icon" :link="item.link" />
-      </li>
-      <li>
-        <a v-if="site.themeConfig.rss" :href="site.themeConfig.rss"
-          ><RSS class="icon"
-        /></a>
-      </li>
-    </ul>
+    <span v-if="title" class="title">Posts</span>
+<!--    <ul class="links">-->
+<!--      <li v-for="item in socialLink">-->
+<!--        <SocialLink :icon="item.icon" :link="item.link" />-->
+<!--      </li>-->
+<!--      <li>-->
+<!--        <a v-if="site.themeConfig.rss" :href="site.themeConfig.rss"-->
+<!--          ><RSS class="icon"-->
+<!--        /></a>-->
+<!--      </li>-->
+<!--    </ul>-->
   </div>
 </template>
 

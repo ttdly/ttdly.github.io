@@ -9,27 +9,37 @@ type BlogListItem = {
   url: string;
 };
 
-const { frontmatter } = useData();
+const { frontmatter, site } = useData();
+const title = site.value.themeConfig.name
+  ? site.value.themeConfig.name
+  : site.value.title;
 const list: Array<BlogListItem> = frontmatter.value.list;
 </script>
 
 <template>
-  <div>
+  <div class="blog-list">
     <PageHead />
     <ul class="list">
       <template v-for="item in list">
         <li>
-          <a :href="item.url">{{ item.title }}</a>
           <span class="time">{{
-            handelRawDate(item.time, DateFormatType.Characters)
-          }}</span>
+              handelRawDate(item.time, DateFormatType.Dot)
+            }}</span>
+          <a :href="item.url">{{ item.title }}</a>
         </li>
       </template>
+      <li class="right">
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA</a>
+        <span>© 2023 {{title}}</span>
+      </li>
     </ul>
   </div>
 </template>
 
 <style scoped>
+.blog-list{
+  padding: 0 1rem;
+}
 ul,
 li {
   list-style: none;
@@ -40,26 +50,40 @@ li {
   margin-top: 2rem;
 }
 
-@media (min-width: 640px) {
-  body li a {
-    font-weight: 600;
-  }
+li{
+  display: flex;
 }
 
 li a {
+  display: inline-block;
   color: var(--c-text-title);
-  font-size: 1.4rem;
-  font-weight: 400;
   transition: color 0.5s;
+  word-break:keep-all;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 li a:hover {
   color: var(--c-text-link);
 }
 
+.right a{
+  color: var(--c-text-content);
+  text-decoration: underline;
+  margin-right: 1ch;
+}
+
 .time {
-  display: block;
-  font-size: 0.8rem;
+  font-weight: 100;
+  display: inline-block;
   color: var(--c-text-low-level);
+  margin-right: .5rem;
+}
+
+@media (min-width: 640px) {
+  .blog-list{
+    padding: 0;
+  }
 }
 </style>

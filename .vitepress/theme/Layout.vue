@@ -19,22 +19,29 @@ const { frontmatter } = useData();
 
 <template>
 <!--  <Cursor/>-->
-  <Blog v-if="frontmatter.title" />
-  <HomePage v-else-if="frontmatter.page === 'home'"/>
-  <BlogList
-    v-else-if="frontmatter.page === 'list'"
-    class="content shadow-box slide-enter-content"
-  />
-  <LabelList
-    v-else-if="frontmatter.page === 'labels'"
-    class="content shadow-box slide-enter-content"
-  />
-  <LabelBlog
-    v-else-if="frontmatter.page === 'label'"
-    class="content shadow-box slide-enter-content"
-  />
-  <NotFound v-else />
-  <Footer v-if="frontmatter.page !== 'home'"/>
+  <div class="layout-container">
+    <Blog v-if="frontmatter.title" />
+    <HomePage v-else-if="frontmatter.page === 'home'"/>
+    <BlogList
+        v-else-if="frontmatter.page === 'list'"
+        class="content slide-enter-content"
+    />
+    <LabelList
+        v-else-if="frontmatter.page === 'labels'"
+        class="content shadow-box slide-enter-content"
+    />
+    <LabelBlog
+        v-else-if="frontmatter.page === 'label'"
+        class="content shadow-box slide-enter-content"
+    />
+    <NotFound v-else />
+<!--    <Footer v-if="frontmatter.page !== 'home'"/>-->
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.layout-container{
+  width: 100%;
+  min-height: 100%;
+}
+</style>
