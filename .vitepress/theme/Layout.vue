@@ -6,11 +6,8 @@ import './css/vp-code-group.css';
 import './css/animation.css';
 import { useData } from 'vitepress';
 import Blog from './components/Blog.vue';
-import Footer from './components/Footer.vue';
 import BlogList from './components/BlogList.vue';
 import NotFound from './NotFound.vue';
-import LabelList from './components/LabelList.vue';
-import LabelBlog from './components/LabelBlog.vue';
 import Cursor from "./components/Cursor.vue";
 import HomePage from "./components/HomePage.vue";
 
@@ -23,19 +20,14 @@ const { frontmatter } = useData();
     <Blog v-if="frontmatter.title" />
     <HomePage v-else-if="frontmatter.page === 'home'"/>
     <BlogList
-        v-else-if="frontmatter.page === 'list'"
+        v-else-if="
+        frontmatter.page === 'list' ||
+        frontmatter.page === 'label'||
+        frontmatter.page === 'labels'
+        "
         class="content slide-enter-content"
     />
-    <LabelList
-        v-else-if="frontmatter.page === 'labels'"
-        class="content shadow-box slide-enter-content"
-    />
-    <LabelBlog
-        v-else-if="frontmatter.page === 'label'"
-        class="content shadow-box slide-enter-content"
-    />
     <NotFound v-else />
-<!--    <Footer v-if="frontmatter.page !== 'home'"/>-->
   </div>
 </template>
 

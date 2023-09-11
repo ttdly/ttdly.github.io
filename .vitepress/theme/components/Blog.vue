@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useData } from 'vitepress';
-import { computed, type ComputedRef, onMounted } from 'vue';
-import { DateFormatType, handelRawDate } from '../util/date.js';
+import {useData} from 'vitepress';
+import {computed, type ComputedRef, onMounted} from 'vue';
+import {DateFormatType, handelRawDate} from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
 
 type PageData = {
@@ -25,7 +25,8 @@ onMounted(() => {
   });
 });
 
-const { frontmatter, site } = useData();
+const {frontmatter, site} = useData();
+const links = site.value.themeConfig.nav;
 const title = site.value.themeConfig.name
   ? site.value.themeConfig.name
   : site.value.title;
@@ -47,41 +48,50 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 <template>
   <div class="posts content">
     <div class="blog-head">
-      <div></div>
+      <div>
+        <ul>
+          <template v-for="link in links">
+            <li><a :href="link.link">{{link.text}}</a></li>
+          </template>
+        </ul>
+      </div>
       <div class="blog-info">
-        <template v-if="postInfo.labels" v-for="label in postInfo.labels">
-          <a class="label-link" :href="`/pages/${label}`">{{ label }}</a>
-        </template>
-        <h1 v-if="postInfo.title">{{ postInfo.title }}</h1>
+        <h1 v-if="postInfo.title">{{postInfo.title}}</h1>
         <div class="blog-statistic">
           <span v-if="postInfo.create">{{
-            handelRawDate(postInfo.create, DateFormatType.Dot)
-          }}</span>
+              handelRawDate(postInfo.create, DateFormatType.Dot)
+            }}</span>
           <span v-if="postInfo.comments">
-            <Discuss class="icon" /> {{ postInfo.comments }}
+            <Discuss class="icon"/> {{postInfo.comments}}
           </span>
         </div>
       </div>
     </div>
-    <Content class="markdown slide-enter-content" />
+    <Content class="markdown slide-enter-content"/>
     <p v-if="postInfo.update" class="blog-update">
       本文最后更新于 {{handelRawDate(postInfo.update, DateFormatType.Ago)}}
     </p>
+    <p class="label-links">
+      <template v-if="postInfo.labels" v-for="label in postInfo.labels">
+        <a class="label-link" :href="`/pages/${label}`">{{label}}</a>
+      </template>
+    </p>
     <p class="copyright">
-      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">BY-NC-SA</a>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>
       <span>© {{handelRawDate(postInfo.create, DateFormatType.Dot).split(".")[0]}} {{title}}</span>
     </p>
   </div>
 </template>
 
 <style scoped>
-.posts{
+.posts {
   padding: 0 10px;
 }
 
 .blog-update {
   font-size: 0.9em;
   text-align: end;
+  margin: 0;
   color: var(--c-text-low-level);
 }
 
@@ -102,13 +112,42 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   color: var(--c-text-title);
 }
 
+.blog-head ul{
+  list-style: none;
+  display: flex;
+  justify-content: end;
+  gap: 2ch;
+}
+
+.blog-head a{
+  text-decoration: underline;
+}
+
+.blog-head a:hover{
+  color: var(--c-text-link);
+}
+
+.label-links {
+  box-sizing: border-box;
+  padding: 2ch 0;
+  line-height: 1.2;
+  margin: 0;
+}
+
 .label-link {
   display: inline-block;
-  font-size: 0.8rem;
   color: var(--c-text-title);
   cursor: pointer;
+  padding: 1ch;
+  border-radius: 10px;
   margin-right: 0.4rem;
-  margin-bottom: 0.4rem;
+  background-color: var(--c-bg-code-inline);
+  transition: all .4s;
+}
+
+.label-link:hover {
+  color: #fff;
+  background-color: var(--c-bg-code);
 }
 
 .blog-statistic span {
@@ -121,21 +160,22 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   vertical-align: sub;
 }
 
-.copyright a{
+.copyright a {
   margin-right: 1ch;
   text-decoration: underline;
   padding-bottom: 2ch;
 }
 
 @media (min-width: 640px) {
-  body .blog-head{
+  body .blog-head {
     height: 12rem;
   }
-  body .blog-head h1{
+
+  body .blog-head h1 {
     font-weight: 600;
   }
 
-  .posts{
+  .posts {
     padding: 0;
   }
 }

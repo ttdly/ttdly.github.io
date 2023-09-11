@@ -14,8 +14,9 @@ export default defineConfigWithTheme<PokeTheme.Config>({
   },
   themeConfig: {
     nav: [
-      {text: "首页", link: '/'},
-      {text: "分类", link: '/pages/labels.html'}
+      {text: "Home", link: '/'},
+      {text: "Posts", link: '/post-list.html'},
+      {text: "Labels",link:"/pages/labels.html"}
     ],
     socialLink:[
       {icon:'github',link:'https://github.com/ttdly'}

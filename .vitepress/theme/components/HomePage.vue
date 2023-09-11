@@ -13,7 +13,7 @@ console.log(frontmatter.value.links)
 </script>
 
 <template>
-  <div class="container">
+  <div class="container slide-enter-content">
     <div class="avatar">
       <img src="logo.svg" alt="avatar">
     </div>
