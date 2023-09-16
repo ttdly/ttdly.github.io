@@ -4,20 +4,28 @@ import './css/markdown.css';
 import './css/vars.css';
 import './css/vp-code-group.css';
 import './css/animation.css';
-import { useData } from 'vitepress';
+import {useData, useRouter} from 'vitepress';
 import Blog from './components/Blog.vue';
 import BlogList from './components/BlogList.vue';
 import NotFound from './NotFound.vue';
 import Cursor from "./components/Cursor.vue";
 import HomePage from "./components/HomePage.vue";
+import NProgress from 'nprogress';
 
-const { frontmatter } = useData();
+NProgress.configure({
+  showSpinner: false
+});
+const {frontmatter} = useData();
+const router = useRouter();
+router.onBeforeRouteChange = () => NProgress.start()
+router.onAfterRouteChanged = () => NProgress.done();
+
 </script>
 
 <template>
-<!--  <Cursor/>-->
+  <!--  <Cursor/>-->
   <div class="layout-container">
-    <Blog v-if="frontmatter.title" />
+    <Blog v-if="frontmatter.title"/>
     <HomePage v-else-if="frontmatter.page === 'home'"/>
     <BlogList
         v-else-if="
@@ -27,12 +35,12 @@ const { frontmatter } = useData();
         "
         class="content slide-enter-content"
     />
-    <NotFound v-else />
+    <NotFound v-else/>
   </div>
 </template>
 
 <style scoped>
-.layout-container{
+.layout-container {
   width: 100%;
   min-height: 100%;
 }

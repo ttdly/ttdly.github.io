@@ -149,9 +149,17 @@ li {
   margin: 0 auto;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 677px) {
   body .shadow-box {
     box-shadow: 0 10px 20px 0 #ccc;
     margin-top: 60px;
   }
+}
+
+#nprogress .bar {
+  background: var(--c-text-content) !important;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: var(--c-text-content) !important;
 }
