@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import {useData} from 'vitepress';
-import {computed, type ComputedRef, onMounted} from 'vue';
+import {onContentUpdated, useData} from 'vitepress';
+import {computed, type ComputedRef, onMounted, ref} from 'vue';
 import {DateFormatType, handelRawDate} from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
+import ToTop from "./icons/ToTop.vue";
 
 type PageData = {
   create: string | Boolean;
@@ -13,7 +14,35 @@ type PageData = {
   [key: string]: any;
 };
 
+function _throttle (fn:Function, wait: number) {
+  let last: number, timer: number,now: number;
+  return function() {
+    now = Date.now();
+    if (last && now - last < wait) {
+      clearTimeout(timer);
+      timer = setTimeout(function() {
+        last = now;
+        fn.call(this, ...arguments);
+      }, wait);
+    } else {
+      last = now;
+      fn.call(this, ...arguments);
+    }
+  };
+}
+
+const showToTop = ref<boolean>(false)
+
 onMounted(() => {
+  window.addEventListener("scroll",
+    _throttle(() => {
+      if(document.documentElement.scrollTop > 300){
+         if (!showToTop.value) showToTop.value = true
+      } else {
+        if (showToTop.value) showToTop.value = false
+      }
+    },1000)
+  )
   Array.from(document.getElementsByTagName('img')).forEach((img) => {
     img.addEventListener('error', () => {
       img.src =
@@ -24,6 +53,47 @@ onMounted(() => {
     });
   });
 });
+const toTop = function () {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+  showToTop.value = false;
+}
+
+const headers = ref();
+onContentUpdated(()=>{
+  headers.value = [
+    ...document.querySelectorAll('.markdown :where(h2,h3)')
+  ]
+    .filter((el) => el.id && el.hasChildNodes())
+    .map((el) => {
+      const level = Number(el.tagName[1])
+      return {
+        title: serializeHeader(el),
+        link: '#' + el.id,
+        level
+      }
+    })
+  console.log(headers.value)
+})
+
+
+function serializeHeader(h: Element): string {
+  let ret = ''
+  for (const node of h.childNodes) {
+    if (node.nodeType === 1) {
+      if (
+        (node as Element).classList.contains('VPBadge') ||
+        (node as Element).classList.contains('header-anchor')
+      ) {
+        continue
+      }
+      ret += node.textContent
+    } else if (node.nodeType === 3) {
+      ret += node.textContent
+    }
+  }
+  return ret.trim()
+}
 
 const {frontmatter, site} = useData();
 const links = site.value.themeConfig.nav;
@@ -43,6 +113,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   }
   return result;
 });
+
 </script>
 
 <template>
@@ -81,11 +152,27 @@ const postInfo: ComputedRef<PageData> = computed(() => {
       <span>© {{handelRawDate(postInfo.create, DateFormatType.Dot).split(".")[0]}} {{title}}</span>
     </p>
   </div>
+  <div class="to-top" v-if="showToTop" @click="toTop">
+    <ToTop/>
+  </div>
 </template>
 
 <style scoped>
 .posts {
   padding: 0 10px;
+}
+
+.to-top {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid;
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog-update {

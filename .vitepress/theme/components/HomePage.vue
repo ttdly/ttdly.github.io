@@ -9,7 +9,6 @@ const title = site.value.themeConfig.name
   ? site.value.themeConfig.name
   : site.value.title;
 const links = frontmatter.value.links
-console.log(frontmatter.value.links)
 </script>
 
 <template>
