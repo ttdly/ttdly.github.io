@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import {onContentUpdated, useData} from 'vitepress';
+import {useData} from 'vitepress';
 import {computed, type ComputedRef, onMounted, ref} from 'vue';
 import {DateFormatType, handelRawDate} from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
 import ToTop from "./icons/ToTop.vue";
+import OutLine from "./OutLine.vue";
 
 type PageData = {
   create: string | Boolean;
@@ -57,42 +58,6 @@ const toTop = function () {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
   showToTop.value = false;
-}
-
-const headers = ref();
-onContentUpdated(()=>{
-  headers.value = [
-    ...document.querySelectorAll('.markdown :where(h2,h3)')
-  ]
-    .filter((el) => el.id && el.hasChildNodes())
-    .map((el) => {
-      const level = Number(el.tagName[1])
-      return {
-        title: serializeHeader(el),
-        link: '#' + el.id,
-        level
-      }
-    })
-  console.log(headers.value)
-})
-
-
-function serializeHeader(h: Element): string {
-  let ret = ''
-  for (const node of h.childNodes) {
-    if (node.nodeType === 1) {
-      if (
-        (node as Element).classList.contains('VPBadge') ||
-        (node as Element).classList.contains('header-anchor')
-      ) {
-        continue
-      }
-      ret += node.textContent
-    } else if (node.nodeType === 3) {
-      ret += node.textContent
-    }
-  }
-  return ret.trim()
 }
 
 const {frontmatter, site} = useData();
@@ -155,6 +120,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   <div class="to-top" v-if="showToTop" @click="toTop">
     <ToTop/>
   </div>
+  <OutLine/>
 </template>
 
 <style scoped>
@@ -225,8 +191,9 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   display: inline-block;
   color: var(--c-text-title);
   cursor: pointer;
-  padding: 1ch;
-  border-radius: 10px;
+  font-size: smaller;
+  padding: 3px 5px ;
+  border-radius: 2px;
   margin-right: 0.4rem;
   background-color: var(--c-bg-code-inline);
   transition: all .4s;
