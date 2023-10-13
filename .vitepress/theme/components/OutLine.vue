@@ -17,7 +17,6 @@ onContentUpdated(()=>{
         level
       }
     })
-  console.log(headers.value)
 })
 
 
@@ -42,7 +41,6 @@ function serializeHeader(h: Element): string {
 </script>
 
 <template>
-
   <ul>
     <li class="title">目录</li>
     <template v-for="header in headers">
@@ -63,6 +61,7 @@ ul{
   position: fixed;
   top: 4rem;
   right: 1rem;
+  display: none;
 }
 
 li{
@@ -76,5 +75,11 @@ a{
 
 a:hover{
   color: var(--c-text-link);
+}
+
+@media (min-width: 640px) {
+  ul {
+    display: block;
+  }
 }
 </style>

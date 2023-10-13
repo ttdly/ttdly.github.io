@@ -55,8 +55,10 @@ onMounted(() => {
   });
 });
 const toTop = function () {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  document.documentElement.scrollTo({
+    top:0,
+    behavior: 'smooth'
+  });
   showToTop.value = false;
 }
 
@@ -131,14 +133,13 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 .to-top {
   height: 3rem;
   width: 3rem;
-  border-radius: 1.5rem;
-  border: 1px solid;
   position: fixed;
-  bottom: 4rem;
+  bottom: 2rem;
   right: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: 0.8;
 }
 
 .blog-update {

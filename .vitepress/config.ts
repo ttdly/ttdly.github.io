@@ -20,7 +20,8 @@ export default defineConfigWithTheme<PokeTheme.Config>({
     ],
     socialLink:[
       {icon:'github',link:'https://github.com/ttdly'}
-    ]
+    ],
+    postsDir:"/posts/"
   },
   head: [["link", {rel: "shortcut icon", href: "/logo.svg"}]]
 })

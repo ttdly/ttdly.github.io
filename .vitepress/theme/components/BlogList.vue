@@ -2,18 +2,28 @@
 import {useData} from 'vitepress';
 import PageHead from './PageHead.vue';
 import {DateFormatType, handelRawDate} from '../util/date.js';
-import {computed, ref} from "vue";
+import {computed} from "vue";
 
 type BlogListItem = {
   time: string;
   title: string;
   url: string;
+  labels: [];
 };
 
 const {frontmatter, site} = useData();
-const title:String = site.value.themeConfig.name
+const title:string = site.value.themeConfig.name
   ? site.value.themeConfig.name
   : site.value.title;
+
+const dealWithRawItem = function (item: BlogListItem){
+  return {
+    title: item.title,
+    time: item.time,
+    year: new Date(item.time).getFullYear(),
+    labels: item.labels
+  }
+}
 
 const listInfo = computed(()=>{
   let head = 'Posts'
@@ -32,6 +42,7 @@ const listInfo = computed(()=>{
     flag = 1;
     head = 'labels'
   }
+
   return {
     head,
     list,

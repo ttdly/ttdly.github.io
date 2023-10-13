@@ -14,7 +14,7 @@ const links = frontmatter.value.links
 <template>
   <div class="container slide-enter-content">
     <div class="avatar">
-      <img src="logo.svg" alt="avatar">
+      <img src="/logo.svg" alt="avatar">
     </div>
     <div class="name">{{title}}</div>
     <div class="location"><Location/><span>China</span></div>

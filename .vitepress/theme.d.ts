@@ -16,5 +16,6 @@ export namespace PokeTheme {
     name?: string;
     socialLink?: Array<SocialLink>;
     rss?: boolean;
+    postsDir?: string
   }
 }
