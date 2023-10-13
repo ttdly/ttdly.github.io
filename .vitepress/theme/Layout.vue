@@ -4,33 +4,44 @@ import './css/markdown.css';
 import './css/vars.css';
 import './css/vp-code-group.css';
 import './css/animation.css';
-import { useData } from 'vitepress';
+import {useData, useRouter} from 'vitepress';
 import Blog from './components/Blog.vue';
-import Footer from './components/Footer.vue';
 import BlogList from './components/BlogList.vue';
 import NotFound from './NotFound.vue';
-import LabelList from './components/LabelList.vue';
-import LabelBlog from './components/LabelBlog.vue';
+import Cursor from "./components/Cursor.vue";
+import HomePage from "./components/HomePage.vue";
+import NProgress from 'nprogress';
 
-const { frontmatter } = useData();
+NProgress.configure({
+  showSpinner: false
+});
+const {frontmatter} = useData();
+const router = useRouter();
+router.onBeforeRouteChange = () => NProgress.start()
+router.onAfterRouteChanged = () => NProgress.done();
+
 </script>
 
 <template>
-  <Blog v-if="frontmatter.title" />
-  <BlogList
-    v-else-if="frontmatter.page === 'list'"
-    class="content shadow-box slide-enter-content"
-  />
-  <LabelList
-    v-else-if="frontmatter.page === 'labels'"
-    class="content shadow-box slide-enter-content"
-  />
-  <LabelBlog
-    v-else-if="frontmatter.page === 'label'"
-    class="content shadow-box slide-enter-content"
-  />
-  <NotFound v-else />
-  <Footer />
+  <!--  <Cursor/>-->
+  <div class="layout-container">
+    <Blog v-if="frontmatter.title"/>
+    <HomePage v-else-if="frontmatter.page === 'home'"/>
+    <BlogList
+        v-else-if="
+        frontmatter.page === 'list' ||
+        frontmatter.page === 'label'||
+        frontmatter.page === 'labels'
+        "
+        class="content slide-enter-content"
+    />
+    <NotFound v-else/>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.layout-container {
+  width: 100%;
+  min-height: 100%;
+}
+</style>

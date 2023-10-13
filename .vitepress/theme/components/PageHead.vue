@@ -1,30 +1,25 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
-import RSS from './icons/RSS.vue';
-import SocialLink from './icons/SocialLink.vue';
-
+import {toRefs} from "vue";
+const prop = defineProps({
+  title:String,
+  head:String
+})
+const {title,head} = toRefs(prop)
 const { site } = useData();
-const title = site.value.themeConfig.name
-  ? site.value.themeConfig.name
-  : site.value.title;
-const socialLink = site.value.themeConfig.socialLink;
+const links = site.value.themeConfig.nav;
 </script>
 
 <template>
   <div class="page-head">
-    <span v-if="title" class="title"
-      ><a href="/">{{ title }}</a></span
-    >
-    <ul class="links">
-      <li v-for="item in socialLink">
-        <SocialLink :icon="item.icon" :link="item.link" />
-      </li>
-      <li>
-        <a v-if="site.themeConfig.rss" :href="site.themeConfig.rss"
-          ><RSS class="icon"
-        /></a>
-      </li>
-    </ul>
+    <div>
+      <ul>
+        <template v-for="link in links">
+          <li><a :href="link.link">{{link.text}}</a></li>
+        </template>
+      </ul>
+    </div>
+    <span v-if="title" class="title">{{head}}</span>
   </div>
 </template>
 
@@ -41,7 +36,6 @@ const socialLink = site.value.themeConfig.socialLink;
   flex-direction: column;
   justify-content: end;
   height: 10rem;
-  padding-bottom: 1rem;
 }
 
 .page-head .icon,
@@ -51,6 +45,20 @@ const socialLink = site.value.themeConfig.socialLink;
 }
 
 .page-head a:hover {
+  color: var(--c-text-link);
+}
+
+ul {
+  text-decoration: none;
+  display: flex;
+  justify-content: end;
+  gap: 2ch;
+}
+
+ul a{
+  text-decoration: underline;
+}
+ul a:hover{
   color: var(--c-text-link);
 }
 
@@ -75,6 +83,10 @@ const socialLink = site.value.themeConfig.socialLink;
   display: block;
   font-weight: 600;
   font-size: 2rem;
+}
+
+.title::first-letter{
+  text-transform: uppercase;
 }
 
 .page-head .icon {
