@@ -46,6 +46,8 @@ jobs:
 
       - name: Run poke
         uses: ttdly/poke@main
+        with:
+          homePage: post-list.md
 
       - name: Commit files
         run: |
