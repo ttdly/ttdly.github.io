@@ -7,11 +7,12 @@ export default defineConfigWithTheme<PokeTheme.Config>({
   title: '秃头灯笼鱼',
   titleTemplate: false,
   markdown: {
-    theme: 'one-dark-pro'
+    theme: 'vitesse-light'
   },
   themeConfig: {
     nav: [
       {text: "首页", link: '/'},
+      {text: "日志", link: '/post-list.html'},
       {text: "分类", link: '/pages/labels.html'}
     ],
     socialLink:[

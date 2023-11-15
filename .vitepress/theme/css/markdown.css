@@ -171,7 +171,7 @@ code {
   right: 6px;
   height: var(--px-code-cpoy);
   width: var(--px-code-cpoy);
-  cursor: none;
+  cursor: pointer;
   border: solid 1px var(--c-code-border);
   border-radius: 4px;
   background-color: var(--c-bg-code);
@@ -191,7 +191,7 @@ code {
   right: 6px;
   height: var(--px-code-cpoy);
   width: var(--px-code-cpoy);
-  cursor: none;
+  cursor: pointer;
   border: solid 1px var(--c-code-border);
   border-radius: 4px;
   background-image: var(--code-copied);

@@ -3,8 +3,6 @@ import {useData} from 'vitepress';
 import {computed, type ComputedRef, onMounted, ref} from 'vue';
 import {DateFormatType, handelRawDate} from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
-import ToTop from "./icons/ToTop.vue";
-import OutLine from "./OutLine.vue";
 
 type PageData = {
   create: string | Boolean;
@@ -54,13 +52,6 @@ onMounted(() => {
     });
   });
 });
-const toTop = function () {
-  document.documentElement.scrollTo({
-    top:0,
-    behavior: 'smooth'
-  });
-  showToTop.value = false;
-}
 
 const {frontmatter, site} = useData();
 const links = site.value.themeConfig.nav;
@@ -119,10 +110,6 @@ const postInfo: ComputedRef<PageData> = computed(() => {
       <span>© {{handelRawDate(postInfo.create, DateFormatType.Dot).split(".")[0]}} {{title}}</span>
     </p>
   </div>
-  <div class="to-top" v-if="showToTop" @click="toTop">
-    <ToTop/>
-  </div>
-  <OutLine/>
 </template>
 
 <style scoped>
@@ -202,7 +189,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 
 .label-link:hover {
   color: #fff;
-  background-color: var(--c-bg-code);
+  background-color: var(--c-text-title);
 }
 
 .blog-statistic span {
