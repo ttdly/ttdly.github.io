@@ -1,6 +1,10 @@
 ---
 page: list
 list:
+  - time: 2023-11-16T09:13:03Z
+    title: 生成排列问题
+    url: /posts/8.html
+    number: 8
   - time: 2023-09-05T14:56:21.000Z
     title: NS-3 环境搭建
     url: /posts/7.html

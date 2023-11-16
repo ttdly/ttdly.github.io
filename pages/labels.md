@@ -5,4 +5,5 @@ labels:
   - echarts
   - python
   - ns-3
+  - 算法
 ---
