@@ -117,17 +117,6 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   padding: 0 10px;
 }
 
-.to-top {
-  height: 3rem;
-  width: 3rem;
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.8;
-}
 
 .blog-update {
   font-size: 0.9em;
@@ -137,7 +126,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 }
 
 .blog-head {
-  height: 15rem;
+  height: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -149,7 +138,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   margin-bottom: 1rem;
   padding: 0;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 600;
   color: var(--c-text-title);
 }
 
@@ -213,9 +202,6 @@ const postInfo: ComputedRef<PageData> = computed(() => {
     height: 12rem;
   }
 
-  body .blog-head h1 {
-    font-weight: 600;
-  }
 
   .posts {
     padding: 0;

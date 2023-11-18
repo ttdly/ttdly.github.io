@@ -16,7 +16,7 @@ export function handelRawDate(
   };
   switch (type) {
     case DateFormatType.Dot:
-      return `${year}.${month}.${day}`;
+      return `${year.toString().padStart(4,'0')}.${month.toString().padStart(2, '0')}.${day.toString().padStart(2, '0')}`;
     case DateFormatType.Characters:
       return `${year} 年 ${month} 月 ${day} 日`;
     case DateFormatType.Ago:
