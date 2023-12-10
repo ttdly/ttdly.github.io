@@ -17,7 +17,6 @@
   "license": "AGPL-3.0",
   "devDependencies": {
     "markdown-it-katex": "^2.0.3",
-    "nprogress": "^0.2.0",
     "vitepress": "^1.0.0-rc.21",
     "vue": "^3.3.4"
   },

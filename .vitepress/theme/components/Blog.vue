@@ -98,7 +98,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
     </div>
     <Content class="markdown slide-enter-content"/>
     <p v-if="postInfo.update" class="blog-update">
-      本文最后更新于 {{handelRawDate(postInfo.update, DateFormatType.Ago)}}
+      本文最后更新于 {{handelRawDate(postInfo.update, DateFormatType.Characters)}}
     </p>
     <p class="label-links">
       <template v-if="postInfo.labels" v-for="label in postInfo.labels">

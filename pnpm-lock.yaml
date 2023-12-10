@@ -13,12 +13,9 @@ devDependencies:
   markdown-it-katex:
     specifier: ^2.0.3
     version: 2.0.3
-  nprogress:
-    specifier: ^0.2.0
-    version: 0.2.0
   vitepress:
     specifier: ^1.0.0-rc.21
-    version: 1.0.0-rc.21(@algolia/client-search@4.19.1)(nprogress@0.2.0)(search-insights@2.8.1)
+    version: 1.0.0-rc.21(@algolia/client-search@4.19.1)(search-insights@2.8.1)
   vue:
     specifier: ^3.3.4
     version: 3.3.4
@@ -527,7 +524,7 @@ packages:
       - vue
     dev: true
 
-  /@vueuse/integrations@10.5.0(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.3.4):
+  /@vueuse/integrations@10.5.0(focus-trap@7.5.4)(vue@3.3.4):
     resolution: {integrity: sha512-fm5sXLCK0Ww3rRnzqnCQRmfjDURaI4xMsx+T+cec0ngQqHx/JgUtm8G0vRjwtonIeTBsH1Q8L3SucE+7K7upJQ==}
     peerDependencies:
       async-validator: '*'
@@ -571,7 +568,6 @@ packages:
       '@vueuse/core': 10.5.0(vue@3.3.4)
       '@vueuse/shared': 10.5.0(vue@3.3.4)
       focus-trap: 7.5.4
-      nprogress: 0.2.0
       vue-demi: 0.14.6(vue@3.3.4)
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -705,10 +701,6 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  /nprogress@0.2.0:
-    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
-    dev: true
-
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}
 
@@ -791,7 +783,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitepress@1.0.0-rc.21(@algolia/client-search@4.19.1)(nprogress@0.2.0)(search-insights@2.8.1):
+  /vitepress@1.0.0-rc.21(@algolia/client-search@4.19.1)(search-insights@2.8.1):
     resolution: {integrity: sha512-eHX057NgAqmrj6FIqh7Sqsbk/kftrFMBUpCKjuQIZ+c+bYTbmzXsXrHSbT5b4WWy4vLx1993a+H3wIRy2dHi8g==}
     hasBin: true
     peerDependencies:
@@ -808,7 +800,7 @@ packages:
       '@types/markdown-it': 13.0.2
       '@vue/devtools-api': 6.5.1
       '@vueuse/core': 10.5.0(vue@3.3.4)
-      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(nprogress@0.2.0)(vue@3.3.4)
+      '@vueuse/integrations': 10.5.0(focus-trap@7.5.4)(vue@3.3.4)
       focus-trap: 7.5.4
       mark.js: 8.11.1
       minisearch: 6.1.0

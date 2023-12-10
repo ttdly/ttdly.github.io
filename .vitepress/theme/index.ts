@@ -6,5 +6,4 @@ const theme: Theme = {
 };
 export * from './util/date.js';
 export * from './util/icon.js';
-import 'nprogress/nprogress.css'
 export default theme;
