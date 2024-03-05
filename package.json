@@ -16,12 +16,12 @@
   "author": "ttdlyu",
   "license": "AGPL-3.0",
   "devDependencies": {
-    "markdown-it-katex": "^2.0.3",
-    "vitepress": "^1.0.0-rc.21",
-    "vue": "^3.3.4"
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "1.0.0-rc.44",
+    "vue": "^3.4.21"
   },
   "type": "module",
   "dependencies": {
-    "vite": "^4.4.11"
+    "vite": "^4.5.2"
   }
 }

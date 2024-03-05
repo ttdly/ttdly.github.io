@@ -13,45 +13,46 @@ type PageData = {
   [key: string]: any;
 };
 
-function _throttle (fn:Function, wait: number) {
-  let last: number, timer: number,now: number;
-  return function() {
-    now = Date.now();
-    if (last && now - last < wait) {
-      clearTimeout(timer);
-      timer = setTimeout(function() {
-        last = now;
-        fn.call(this, ...arguments);
-      }, wait);
-    } else {
-      last = now;
-      fn.call(this, ...arguments);
-    }
-  };
-}
+// 由于 spa 模式下 javascript 无法使用，故注释
+// function _throttle (fn:Function, wait: number) {
+//   let last: number, timer: number,now: number;
+//   return function() {
+//     now = Date.now();
+//     if (last && now - last < wait) {
+//       clearTimeout(timer);
+//       timer = setTimeout(function() {
+//         last = now;
+//         fn.call(this, ...arguments);
+//       }, wait);
+//     } else {
+//       last = now;
+//       fn.call(this, ...arguments);
+//     }
+//   };
+// }
 
-const showToTop = ref<boolean>(false)
+// const showToTop = ref<boolean>(false)
 
-onMounted(() => {
-  window.addEventListener("scroll",
-    _throttle(() => {
-      if(document.documentElement.scrollTop > 300){
-         if (!showToTop.value) showToTop.value = true
-      } else {
-        if (showToTop.value) showToTop.value = false
-      }
-    },1000)
-  )
-  Array.from(document.getElementsByTagName('img')).forEach((img) => {
-    img.addEventListener('error', () => {
-      img.src =
-        '/img_error.svg';
-      img.onerror = () => {
-        return;
-      };
-    });
-  });
-});
+// onMounted(() => {
+//   window.addEventListener("scroll",
+//     _throttle(() => {
+//       if(document.documentElement.scrollTop > 300){
+//          if (!showToTop.value) showToTop.value = true
+//       } else {
+//         if (showToTop.value) showToTop.value = false
+//       }
+//     },1000)
+//   )
+//   Array.from(document.getElementsByTagName('img')).forEach((img) => {
+//     img.addEventListener('error', () => {
+//       img.src =
+//         '/img_error.svg';
+//       img.onerror = () => {
+//         return;
+//       };
+//     });
+//   });
+// });
 
 const {frontmatter, site} = useData();
 const links = site.value.themeConfig.nav;
@@ -113,6 +114,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 </template>
 
 <style scoped>
+
 .posts {
   padding: 0 10px;
 }
@@ -182,9 +184,10 @@ const postInfo: ComputedRef<PageData> = computed(() => {
 }
 
 .blog-statistic span {
-  font-size: 0.6rem;
+  font-size: 0.8rem;
   display: inline-block;
   margin-right: 2rem;
+  color: var(--c-custom-block-info);
 }
 
 .icon {
