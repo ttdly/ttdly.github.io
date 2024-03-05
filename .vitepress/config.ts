@@ -22,5 +22,9 @@ export default defineConfigWithTheme<PokeTheme.Config>({
   },
   head: [
     ["link", {rel: "shortcut icon", href: "/logo.svg"}],
-  ]
+  ],
+  // sitemap:{
+  //   hostname: 'https://blog.152527.xyz',
+  //   lastmodDateOnly: true
+  // }
 })

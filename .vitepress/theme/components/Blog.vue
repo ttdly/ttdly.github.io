@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import {useData} from 'vitepress';
-import {computed, type ComputedRef, onMounted, ref} from 'vue';
+import {computed, type ComputedRef} from 'vue';
 import {DateFormatType, handelRawDate} from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
+import Gisus from "@giscus/vue"
 
 type PageData = {
   create: string | Boolean;
@@ -12,47 +13,6 @@ type PageData = {
   comments: string | Boolean;
   [key: string]: any;
 };
-
-// 由于 spa 模式下 javascript 无法使用，故注释
-// function _throttle (fn:Function, wait: number) {
-//   let last: number, timer: number,now: number;
-//   return function() {
-//     now = Date.now();
-//     if (last && now - last < wait) {
-//       clearTimeout(timer);
-//       timer = setTimeout(function() {
-//         last = now;
-//         fn.call(this, ...arguments);
-//       }, wait);
-//     } else {
-//       last = now;
-//       fn.call(this, ...arguments);
-//     }
-//   };
-// }
-
-// const showToTop = ref<boolean>(false)
-
-// onMounted(() => {
-//   window.addEventListener("scroll",
-//     _throttle(() => {
-//       if(document.documentElement.scrollTop > 300){
-//          if (!showToTop.value) showToTop.value = true
-//       } else {
-//         if (showToTop.value) showToTop.value = false
-//       }
-//     },1000)
-//   )
-//   Array.from(document.getElementsByTagName('img')).forEach((img) => {
-//     img.addEventListener('error', () => {
-//       img.src =
-//         '/img_error.svg';
-//       img.onerror = () => {
-//         return;
-//       };
-//     });
-//   });
-// });
 
 const {frontmatter, site} = useData();
 const links = site.value.themeConfig.nav;
@@ -111,9 +71,65 @@ const postInfo: ComputedRef<PageData> = computed(() => {
       <span>© {{handelRawDate(postInfo.create, DateFormatType.Dot).split(".")[0]}} {{title}}</span>
     </p>
   </div>
+  <div class="comment-container">
+    <div class="comment-button">
+      <Discuss/>
+    </div>
+    <div class="comment-content">
+      <Gisus
+      repo="ttdly/ttdly.github.io"
+      repo-id="R_kgDOJMOVkQ"
+      category="Posts"
+      category-id="DIC_kwDOJMOVkc4CVY5w"
+      mapping="title"
+      strict="0"
+      reactions-enabled="1"
+      emit-metadata="0"
+      input-position="top"
+      theme="preferred_color_scheme"
+      lang="zh-CN"
+      loading="lazy"
+      crossorigin="anonymous"
+      async
+    />
+    </div>
+  </div>
 </template>
 
 <style scoped>
+.comment-container{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.comment-button{
+  height: 3rem;
+  width: 3rem;
+  border-radius: 999px;
+  margin-bottom: 30px;
+  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.29);
+}
+
+.comment-container:hover .comment-content{
+  display: block;
+}
+
+.comment-container:hover .comment-button{
+  display: none;
+}
+
+.comment-content{
+  background: #fff;
+  padding: 5px 10px;
+  border: 1px solid;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+}
 
 .posts {
   padding: 0 10px;
