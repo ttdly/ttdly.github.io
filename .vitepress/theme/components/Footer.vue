@@ -12,7 +12,7 @@ const nav = site.value.themeConfig.nav;
         </li>
       </template>
     </ul>
-    <div>©2023 {{site.title}}</div>
+    <div>©2023 {{ site.title }}</div>
     <div>
       Powered by
       <a href="https://vitepress.dev/" target="_blank">vitepress</a> &

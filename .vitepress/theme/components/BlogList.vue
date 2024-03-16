@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {useData} from 'vitepress';
+import { useData } from 'vitepress';
 import PageHead from './PageHead.vue';
-import {DateFormatType, handelRawDate} from '../util/date.js';
-import {computed} from "vue";
+import { DateFormatType, handelRawDate } from '../util/date.js';
+import { computed } from 'vue';
 
 type BlogListItem = {
   time: string;
@@ -11,58 +11,57 @@ type BlogListItem = {
   labels: [];
 };
 
-const {frontmatter, site} = useData();
-const title:string = site.value.themeConfig.name
+const { frontmatter, site } = useData();
+const title: string = site.value.themeConfig.name
   ? site.value.themeConfig.name
   : site.value.title;
 
-const dealWithRawItem = function (item: BlogListItem){
+const dealWithRawItem = function (item: BlogListItem) {
   return {
     title: item.title,
     time: item.time,
     year: new Date(item.time).getFullYear(),
-    labels: item.labels
-  }
-}
+    labels: item.labels,
+  };
+};
 
-const listInfo = computed(()=>{
-  let head = 'Posts'
+const listInfo = computed(() => {
+  let head = 'Posts';
   let list: Array<BlogListItem> = [];
-  let labels = []
-  let flag = 0
-  if (frontmatter.value.page === 'list'){
+  let labels = [];
+  let flag = 0;
+  if (frontmatter.value.page === 'list') {
     list = frontmatter.value.list;
     flag = 0;
-  } else if(frontmatter.value.page === 'label') {
+  } else if (frontmatter.value.page === 'label') {
     list = frontmatter.value.item;
     head = frontmatter.value.label;
     flag = 0;
   } else {
-    labels = frontmatter.value.labels
+    labels = frontmatter.value.labels;
     flag = 1;
-    head = 'labels'
+    head = 'labels';
   }
 
   return {
     head,
     list,
     labels,
-    flag
-  }
+    flag,
+  };
 });
-
 </script>
 
 <template>
   <div class="blog-list">
-    <PageHead :head="listInfo.head" :title="title"/>
+    <PageHead :head="listInfo.head" :title="title" />
     <ul class="list">
       <template v-if="listInfo.flag === 0" v-for="item in listInfo.list">
         <li>
           <span class="time">{{
-              handelRawDate(item.time, DateFormatType.Dot)
-            }}</span>
-          <a :href="item.url">{{item.title}}</a>
+            handelRawDate(item.time, DateFormatType.Dot)
+          }}</span>
+          <a :href="item.url">{{ item.title }}</a>
         </li>
       </template>
       <template v-else v-for="label in listInfo.labels">
@@ -71,8 +70,12 @@ const listInfo = computed(()=>{
         </li>
       </template>
       <li class="right">
-        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">BY-NC-SA</a>
-        <span>© 2023 {{title}}</span>
+        <a
+          href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+          target="_blank"
+          >BY-NC-SA</a
+        >
+        <span>© 2023 {{ title }}</span>
       </li>
     </ul>
   </div>
@@ -121,7 +124,7 @@ li a:hover {
   font-weight: 100;
   display: inline-block;
   color: var(--c-text-low-level);
-  margin-right: .5rem;
+  margin-right: 0.5rem;
 }
 
 @media (min-width: 640px) {

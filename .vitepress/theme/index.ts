@@ -2,7 +2,7 @@
 import Layout from './Layout.vue';
 import { type Theme } from 'vitepress';
 const theme: Theme = {
-  Layout
+  Layout,
 };
 export * from './util/date.js';
 export * from './util/icon.js';

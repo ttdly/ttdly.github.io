@@ -1,5 +1,5 @@
-import {defineConfigWithTheme} from 'vitepress'
-import {PokeTheme} from "./theme";
+import { defineConfigWithTheme } from 'vitepress';
+import { PokeTheme } from './theme';
 
 export default defineConfigWithTheme<PokeTheme.Config>({
   ignoreDeadLinks: true,
@@ -8,23 +8,18 @@ export default defineConfigWithTheme<PokeTheme.Config>({
   titleTemplate: false,
   markdown: {
     math: true,
-    theme: 'one-dark-pro'
+    theme: 'one-dark-pro',
   },
   themeConfig: {
     nav: [
-      {text: "首页", link: '/'},
-      {text: "日志", link: '/post-list.html'},
-      {text: "分类", link: '/pages/labels.html'}
+      { text: '首页', link: '/' },
+      { text: '日志', link: '/post-list.html' },
     ],
-    socialLink:[
-      {icon:'github',link:'https://github.com/ttdly'}
-    ]
+    socialLink: [{ icon: 'github', link: 'https://github.com/ttdly' }],
   },
-  head: [
-    ["link", {rel: "shortcut icon", href: "/logo.svg"}],
-  ],
+  head: [['link', { rel: 'shortcut icon', href: '/logo.svg' }]],
   // sitemap:{
   //   hostname: 'https://blog.152527.xyz',
   //   lastmodDateOnly: true
   // }
-})
+});

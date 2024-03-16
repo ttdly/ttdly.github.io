@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "format": "prettier --write ."
   },
   "keywords": [
     "vitepress",
@@ -17,6 +18,7 @@
   "license": "AGPL-3.0",
   "devDependencies": {
     "markdown-it-mathjax3": "^4.3.2",
+    "prettier": "^3.2.5",
     "vitepress": "1.0.0-rc.44",
     "vue": "^3.4.21"
   },

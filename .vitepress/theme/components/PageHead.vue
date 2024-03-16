@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { useData } from 'vitepress';
-import {toRefs} from "vue";
+import { toRefs } from 'vue';
 const prop = defineProps({
-  title:String,
-  head:String
-})
-const {title,head} = toRefs(prop)
+  title: String,
+  head: String,
+});
+const { title, head } = toRefs(prop);
 const { site } = useData();
 const links = site.value.themeConfig.nav;
 </script>
@@ -15,11 +15,13 @@ const links = site.value.themeConfig.nav;
     <div>
       <ul>
         <template v-for="link in links">
-          <li><a :href="link.link">{{link.text}}</a></li>
+          <li>
+            <a :href="link.link">{{ link.text }}</a>
+          </li>
         </template>
       </ul>
     </div>
-    <span v-if="title" class="title">{{head}}</span>
+    <span v-if="title" class="title">{{ head }}</span>
   </div>
 </template>
 
@@ -55,10 +57,11 @@ ul {
   gap: 2ch;
 }
 
-ul a{
+ul a {
   text-decoration: underline;
 }
-ul a:hover{
+
+ul a:hover {
   color: var(--c-text-link);
 }
 
@@ -85,7 +88,7 @@ ul a:hover{
   font-size: 2rem;
 }
 
-.title::first-letter{
+.title::first-letter {
   text-transform: uppercase;
 }
 

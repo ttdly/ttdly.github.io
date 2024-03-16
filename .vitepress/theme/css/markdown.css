@@ -8,7 +8,7 @@ img {
 }
 
 img::before {
-  content: "图片储存在 GitHub 服务器上，目前加载失败，请刷新重试";
+  content: '图片储存在 GitHub 服务器上，目前加载失败，请刷新重试';
   position: absolute;
   top: 0;
   left: 0;
@@ -164,7 +164,8 @@ code {
   padding: 1em 0;
 }
 
-.markdown div[class*='language-'] pre,.markdown div[class*='language-'] code{
+.markdown div[class*='language-'] pre,
+.markdown div[class*='language-'] code {
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -177,17 +178,17 @@ code {
   -webkit-hyphens: none;
   -moz-hyphens: none;
   -ms-hyphens: none;
-  hyphens: none
+  hyphens: none;
 }
 
-.markdown div[class*='language-'] code{
+.markdown div[class*='language-'] code {
   display: block;
   padding: 0 24px;
   width: fit-content;
   line-height: 1.6;
   font-size: 14px;
   color: #fff;
-  transition: color .5s
+  transition: color 0.5s;
 }
 
 /*语言标签以及复制按钮*/
@@ -305,12 +306,16 @@ code {
 .markdown [class*='language-'] .has-focused-lines .line:not(.has-focus) {
   filter: blur(0.095rem);
   opacity: 0.4;
-  transition: filter 0.35s, opacity 0.35s;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
 }
 
 .markdown [class*='language-'] .has-focused-lines .line:not(.has-focus) {
   opacity: 0.7;
-  transition: filter 0.35s, opacity 0.35s;
+  transition:
+    filter 0.35s,
+    opacity 0.35s;
 }
 
 .markdown [class*='language-']:hover .has-focused-lines .line:not(.has-focus) {
@@ -338,7 +343,9 @@ code {
   line-height: 1.6;
   font-size: 14px;
   color: var(--c-text-low-level);
-  transition: border-color 0.5s, color 0.5s;
+  transition:
+    border-color 0.5s,
+    color 0.5s;
 }
 
 /**

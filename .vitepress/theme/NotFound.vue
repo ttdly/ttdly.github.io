@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="container404 slide-enter-content">
@@ -9,7 +8,7 @@
 </template>
 
 <style scoped>
-.container404{
+.container404 {
   height: 100vh;
   padding-bottom: 10rem;
   display: flex;
@@ -17,11 +16,13 @@
   justify-content: center;
   align-items: center;
 }
-.title{
+
+.title {
   font-size: 12rem;
   font-weight: 800;
 }
-a{
+
+a {
   text-decoration: underline;
   font-size: 1.2rem;
 }

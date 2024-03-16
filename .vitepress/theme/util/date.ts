@@ -1,7 +1,7 @@
 export enum DateFormatType {
   Dot,
   Characters,
-  Ago
+  Ago,
 }
 
 export function handelRawDate(
@@ -12,11 +12,11 @@ export function handelRawDate(
   const { year, month, day } = {
     year: date.getFullYear(),
     month: date.getMonth() + 1,
-    day: date.getDate()
+    day: date.getDate(),
   };
   switch (type) {
     case DateFormatType.Dot:
-      return `${year.toString().padStart(4,'0')}.${month.toString().padStart(2, '0')}.${day.toString().padStart(2, '0')}`;
+      return `${year.toString().padStart(4, '0')}.${month.toString().padStart(2, '0')}.${day.toString().padStart(2, '0')}`;
     case DateFormatType.Characters:
       return `${year} 年 ${month} 月 ${day} 日`;
     case DateFormatType.Ago:

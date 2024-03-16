@@ -6,7 +6,9 @@ body {
   margin: 0;
   /*cursor: none;*/
 }
-html,body,#app{
+html,
+body,
+#app {
   height: 100%;
 }
 body::selection {
@@ -104,7 +106,6 @@ del {
   text-decoration: line-through;
 }
 
-
 figure {
   margin: 1em 0;
 }
@@ -139,7 +140,7 @@ li {
 
 .content {
   max-width: 80ch;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .shadow-box {
