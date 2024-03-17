@@ -1,4 +1,4 @@
-name: copyDiscussion
+name: Copy Discussion to Markdown File
 
 on:
   discussion:
@@ -12,14 +12,14 @@ jobs:
   poke:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout md
+      - name: Checkout md branch
         uses: actions/checkout@v3
         with:
           ref: md
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         id: pnpm-install
         with:
           version: 7.27.0
@@ -38,6 +38,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+
       - name: Update lock file
         run: pnpm install --lockfile-only
 
@@ -50,26 +51,29 @@ jobs:
           homePage: post-list.md
 
       - name: Commit files
+        env:
+          COMMIT_MESSAGE: ${{ format("[{0}] {1} [#{2}]", github.action, github.discussion.title, github.discussion.number) }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "auto copy"
+          git commit -m "${{ env.COMMIT_MESSAGE }}"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
         with: 
           branch: md
-          github_token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build
-        run: pnpm run build
+# 以下是部署到 GitHub Pages 的代码，暂时用不上
+#      - name: Build
+#        run: pnpm run build
   
-      - uses: actions/configure-pages@v2
-      - uses: actions/upload-pages-artifact@v1
-        with:
-          path: ./.vitepress/dist
-
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v1
+#      - uses: actions/configure-pages@v2
+#      - uses: actions/upload-pages-artifact@v1
+#        with:
+#          path: ./.vitepress/dist
+#
+#      - name: Deploy
+#        id: deployment
+#        uses: actions/deploy-pages@v1
