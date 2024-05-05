@@ -1,6 +1,10 @@
 ---
 page: list
 list:
+  - time: 2024-05-05T07:05:26Z
+    title: 缺氧游戏中的电力系统
+    url: /posts/11.html
+    number: 11
   - time: 2024-02-08T12:08:10.000Z
     title: Pwn 栈溢出
     url: /posts/10.html
