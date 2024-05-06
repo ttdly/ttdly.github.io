@@ -1,7 +1,7 @@
 ---
 page: list
 list:
-  - time: 2024-05-05T07:05:26Z
+  - time: 2024-05-05T07:05:26.000Z
     title: 缺氧游戏中的电力系统
     url: /posts/11.html
     number: 11
