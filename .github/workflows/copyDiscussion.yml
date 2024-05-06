@@ -50,9 +50,15 @@ jobs:
         with:
           homePage: post-list.md
 
-      - name: Commit files
+      - name: Set environment variables
         env:
-          COMMIT_MESSAGE: ${{ format("[{0}] {1} [#{2}]", github.action, github.discussion.title, github.discussion.number) }}
+          DISCUSSION_ACTION: ${{ github.event.action }}
+          DISCUSSION_TITLE: ${{ github.event.discussion.title }}
+          DISCUSSION_NUMBER: ${{ github.event.discussion.number }}
+        run: |
+          echo "COMMIT_MESSAGE=[${DISCUSSION_ACTION^^}]${DISCUSSION_TITLE} #${DISCUSSION_NUMBER}" >>$GITHUB_ENV
+
+      - name: Commit files
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
