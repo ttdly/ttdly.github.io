@@ -1,6 +1,10 @@
 ---
 page: list
 list:
+  - time: 2024-06-09T04:01:28Z
+    title: rust 实现文件加解密
+    url: /posts/12.html
+    number: 12
   - time: 2024-05-05T07:05:26.000Z
     title: 缺氧游戏中的电力系统
     url: /posts/11.html

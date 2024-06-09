@@ -9,4 +9,5 @@ labels:
   - 其他
   - ctf
   - 游戏
+  - rust
 ---
