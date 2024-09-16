@@ -1,7 +1,11 @@
 ---
 page: list
 list:
-  - time: 2024-06-09T04:01:28Z
+  - time: 2024-09-16T02:46:46Z
+    title: MMPretrain 实现 AUC 评价指标
+    url: /posts/13.html
+    number: 13
+  - time: 2024-06-09T04:01:28.000Z
     title: rust 实现文件加解密
     url: /posts/12.html
     number: 12
