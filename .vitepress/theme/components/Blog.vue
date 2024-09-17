@@ -3,7 +3,6 @@ import { useData } from 'vitepress';
 import { computed, type ComputedRef } from 'vue';
 import { DateFormatType, handelRawDate } from '../util/date.js';
 import Discuss from './icons/Discuss.vue';
-import Gisus from '@giscus/vue';
 
 type PageData = {
   create: string | Boolean;
@@ -14,11 +13,12 @@ type PageData = {
   [key: string]: any;
 };
 
-const { frontmatter, site } = useData();
+const { frontmatter, site, page } = useData();
 const links = site.value.themeConfig.nav;
 const title = site.value.themeConfig.name
   ? site.value.themeConfig.name
   : site.value.title;
+const number = page.value.filePath.replace("posts/","").replace(".md","");
 const postInfo: ComputedRef<PageData> = computed(() => {
   const result: PageData = {
     create: false,
@@ -84,68 +84,13 @@ const postInfo: ComputedRef<PageData> = computed(() => {
       Powered by
       <a href="https://vitepress.dev/" target="_blank">vitepress</a> &
       <a href="https://github.com/ttdly/poke" target="_blank">poke</a>
+      <span class="space"></span>|<span class="space"></span>
+      <a :href="`https://github.com/ttdly/ttdly.github.io/discussions/${number}`" target="_blank">评论/原文地址</a>
     </p>
-  </div>
-  <div class="comment-container">
-    <div class="comment-button">
-      <Discuss />
-    </div>
-    <div class="comment-content">
-      <Gisus
-        repo="ttdly/ttdly.github.io"
-        repo-id="R_kgDOJMOVkQ"
-        category="Posts"
-        category-id="DIC_kwDOJMOVkc4CVY5w"
-        mapping="title"
-        strict="0"
-        reactions-enabled="1"
-        emit-metadata="0"
-        input-position="top"
-        theme="preferred_color_scheme"
-        lang="zh-CN"
-        loading="lazy"
-        crossorigin="anonymous"
-        async
-      />
-    </div>
   </div>
 </template>
 
 <style scoped>
-.comment-container {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-}
-
-.comment-button {
-  height: 3rem;
-  width: 3rem;
-  border-radius: 999px;
-  margin-bottom: 30px;
-  margin-right: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 6px 6px 18px rgba(0, 0, 0, 0.29);
-}
-
-.comment-container:hover .comment-content {
-  display: block;
-}
-
-.comment-container:hover .comment-button {
-  display: none;
-}
-
-.comment-content {
-  background: #fff;
-  padding: 5px 10px;
-  border: 1px solid;
-  display: none;
-  transition: opacity 0.3s ease-in-out;
-}
-
 .posts {
   padding: 0 10px;
 }
@@ -217,6 +162,7 @@ const postInfo: ComputedRef<PageData> = computed(() => {
   font-size: 0.8rem;
   display: inline-block;
   margin-right: 2rem;
+  margin-bottom: 2ch;
   color: var(--c-custom-block-info);
 }
 
