@@ -1,7 +1,11 @@
 ---
 page: list
 list:
-  - time: 2024-09-16T02:46:46Z
+  - time: 2024-09-22T06:00:41Z
+    title: VitePress 中复制功能的使用
+    url: /posts/14.html
+    number: 14
+  - time: 2024-09-16T02:46:46.000Z
     title: MMPretrain 实现 AUC 评价指标
     url: /posts/13.html
     number: 13

@@ -10,4 +10,5 @@ labels:
   - ctf
   - 游戏
   - rust
+  - web
 ---
