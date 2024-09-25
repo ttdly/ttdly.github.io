@@ -1,7 +1,7 @@
 ---
 page: list
 list:
-  - time: 2024-09-25T01:19:58Z
+  - time: 2024-09-25T01:19:58.000Z
     title: Rust 中 Syntect 如何自定义生成的 HTML 代码
     url: /posts/15.html
     number: 15
