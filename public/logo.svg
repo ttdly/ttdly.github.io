@@ -1,0 +1,21 @@
+<svg
+        width="113"
+        height="113"
+        xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <rect x="0" y="0" width="113" height="19" fill="currentColor"/>
+        <rect x="0" y="0" width="19" height="57" fill="currentColor"/>
+        <rect x="38" y="0" width="37" height="57" fill="currentColor"/>
+        <rect x="0" y="38" width="75" height="19" fill="currentColor"/>
+        <rect x="94" y="19" width="19" height="56" fill="currentColor"/>
+        <rect x="0" y="38" width="38" height="56" fill="currentColor"/>
+        <rect x="56" y="57" width="57" height="37" fill="currentColor"/>
+        <rect x="0" y="75" width="113" height="19" fill="currentColor"/>
+        <rect x="0" y="75" width="38" height="38" fill="currentColor"/>
+        <rect x="75" y="75" width="38" height="38" fill="currentColor"/>
+        <rect x="75" y="0" width="38" height="38" fill="currentColor"/>
+        <rect x="19" y="38" width="56" height="19" fill="currentColor"/>
+        <rect x="57" y="38" width="19" height="37" fill="currentColor"/>
+        <rect x="38" y="19" width="75" height="19" fill="currentColor"/>
+    </g>
+</svg>
