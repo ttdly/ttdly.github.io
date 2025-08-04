@@ -75,7 +75,7 @@ h1 {
 }
 
 .article pre[class*="language-"] {
-  @apply text-sm leading-4 bg-gray-100 px-3 py-5 rounded-sm mt-3 dark:bg-gray-700;
+  @apply text-sm leading-4 bg-gray-100 px-3 py-5 rounded-sm mt-3 dark:bg-gray-700 overflow-x-auto;
 }
 
 .article :not(h1, h2, h3, h4, h5, h6) > a {
