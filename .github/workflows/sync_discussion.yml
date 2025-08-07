@@ -46,7 +46,12 @@ jobs:
           else
             git config user.name "秃头灯笼鱼"
             git config user.email "ttdlyu@163.com"
-            git commit -m "Auto commit: $(date +'%Y-%m-%d %H:%M:%S')" -a
+          
+            git commit -a \
+              -m "文档更新" \
+              -m "${{ github.event.discussion.title }} #${{ github.event.discussion.number }}" \
+              -m "讨论链接：https://github.com/${{ github.repository }}/discussions/${{ github.event.discussion.number }}"
+          
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
