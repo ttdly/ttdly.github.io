@@ -7,6 +7,9 @@
     <main>
       <ContentRenderer :value="article" class="article"/>
     </main>
+    <div class="underline pb-1 cursor-pointer underline-offset-2 mt-2 opacity-60" @click="goBack">
+      cd ..
+    </div>
   </NuxtLayout>
 </template>
 
@@ -18,6 +21,13 @@ const router = useRouter()
 const {data: article} = await useAsyncData(`article-${route.params.id}`, () => {
   return queryCollection('articles').path(route.path).first()
 })
+const goBack = () => {
+  if (window.history.length > 1) {
+    router.back()
+  } else {
+    router.push('/') // fallback 路径
+  }
+}
 
 if (!article.value) {
   router.replace("/blog")
@@ -79,7 +89,7 @@ h1 {
 }
 
 .article :not(h1, h2, h3, h4, h5, h6) > a {
-  @apply text-primary;
+  @apply text-blue-500;
 }
 
 .article table {

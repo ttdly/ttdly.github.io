@@ -9,11 +9,15 @@
       <template v-for="(item, index) in appConfig.sitePage" :key="index">
         <NuxtLink :to="item.link" class="hover:underline">{{ item.title }}</NuxtLink>
       </template>
+      <dark-mode/>
     </div>
+
   </div>
 
 </template>
 
 <script lang="ts" setup>
+import DarkMode from "~/components/DarkMode.vue";
+
 const appConfig = useAppConfig();
 </script>

@@ -15,7 +15,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@iconify-json/heroicons": "^1.2.2",
     "@iconify-json/heroicons-outline": "^1.2.1",
+    "@iconify-json/iconamoon": "^1.2.2",
+    "@iconify-json/streamline-logos": "^1.2.0",
     "@nuxt/content": "3.6.0",
     "@nuxt/eslint": "1.4.1",
     "@nuxt/icon": "1.13.0",
@@ -26,17 +29,15 @@
     "@unhead/vue": "^2.0.10",
     "better-sqlite3": "^11.10.0",
     "eslint": "^9.29.0",
+    "katex": "^0.16.22",
     "nuxt": "^4.0.0",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "tailwindcss": "^4.1.10",
+    "tailwindcss-variable-colors": "^0.1.0",
     "typescript": "^5.8.3",
     "vue": "^3.5.16",
     "vue-router": "^4.5.1"
   },
-  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac",
-  "devDependencies": {
-    "@iconify-json/heroicons": "^1.2.2",
-    "@iconify-json/streamline-logos": "^1.2.0",
-    "git-rev-sync": "^3.0.2",
-    "tailwindcss-variable-colors": "^0.1.0"
-  }
+  "packageManager": "pnpm@10.12.1+sha512.f0dda8580f0ee9481c5c79a1d927b9164f2c478e90992ad268bbb2465a736984391d6333d2c327913578b2804af33474ca554ba29c04a8b13060a717675ae3ac"
 }

@@ -2,7 +2,7 @@
 const {data: essays} = await useAsyncData('essays',
     () => queryCollection('essays')
         .where("locked", "=", false)
-        .order("create_at", "DESC")
+        .order("create", "DESC")
         .all()
 );
 useHead({

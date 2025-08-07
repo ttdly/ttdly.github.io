@@ -18,10 +18,10 @@ export default defineNuxtConfig({
     },
     compatibilityDate: '2025-05-15',
     devtools: {enabled: true},
-    css: ['~/assets/css/main.css'],
+    css: ['~/assets/css/main.css', 'katex/dist/katex.min.css'],
     // 禁用 NuxtUI 的字体配置，抑制字体无法下载错误
     ui: {
-        fonts: false
+        fonts: false,
     },
     app: {
         head: {
@@ -32,7 +32,13 @@ export default defineNuxtConfig({
     content: {
         build: {
             markdown: {
-                highlight: false
+                highlight: false,
+                remarkPlugins: {
+                    'remark-math': {}
+                },
+                rehypePlugins: {
+                    'rehype-katex': {}
+                }
             }
         }
     },
@@ -43,6 +49,6 @@ export default defineNuxtConfig({
         '@nuxt/image',
         '@nuxt/scripts',
         '@nuxt/ui',
-        '@nuxtjs/tailwindcss'
+        '@nuxtjs/tailwindcss',
     ],
 })
